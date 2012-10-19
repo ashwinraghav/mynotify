@@ -11,21 +11,22 @@ import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class Subscription implements Runnable {
+public class SubscriberThread implements Runnable {
+	ArrayList<SubscriptionDetails> subscriptionDetails;
 	private final WatchService watcher;
 	private final Map<WatchKey, Path> keys;
-	private final boolean recursive;
 	private boolean trace = false;
-	Path directory;
 	volatile boolean being_watched;
 
 	@SuppressWarnings("unchecked")
@@ -34,30 +35,15 @@ public class Subscription implements Runnable {
 	}
 
 	public void run() {
-		try {
-
-			if (recursive) {
-				System.out.format("Scanning %s ...\n", directory);
-				registerAll(directory);
-				System.out.println("Done.");
-			} else {
-				System.out.println("not drec");
-				register(directory);
-			}
-			processEvents();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		processEvents();
 	}
 
-	Subscription(Path dir, boolean recursive) throws IOException {
-		this.directory = dir;
-		this.recursive = recursive;
+	SubscriberThread() throws IOException {
 		this.being_watched = true;
-
+		subscriptionDetails = new ArrayList<SubscriptionDetails>();
 		// these can be a little dangerous here.
-		// means that there are watchers even for threads that are not scheduled.
+		// means that there are watchers even for threads that are not
+		// scheduled.
 		this.watcher = FileSystems.getDefault().newWatchService();
 		this.keys = new HashMap<WatchKey, Path>();
 	}
@@ -106,11 +92,12 @@ public class Subscription implements Runnable {
 				Path child = dir.resolve(name);
 
 				// print out event
-				System.out.format("%s: %s\n", event.kind().name(), child);
+				System.out.format("%s: %s detected by %d\n", event.kind().name(), child, Thread.currentThread().getId());
 
 				// if directory is created, and watching recursively, then
 				// register it and its sub-directories
-				if (recursive && (kind == ENTRY_CREATE)) {
+				
+				/*if (recursive && (kind == ENTRY_CREATE)) {
 					try {
 						if (Files.isDirectory(child, NOFOLLOW_LINKS)) {
 							registerAll(child);
@@ -118,7 +105,7 @@ public class Subscription implements Runnable {
 					} catch (IOException x) {
 						// ignore to keep sample readbale
 					}
-				}
+				}*/
 			}
 
 			// reset key and remove from set if directory no longer accessible
@@ -134,9 +121,11 @@ public class Subscription implements Runnable {
 		}
 	}
 
-	/* regular file registrations*/
-	
-	private void register(Path dir) throws IOException {
+	/* regular file registrations */
+
+	public void register(SubscriptionDetails s) throws IOException {
+		this.subscriptionDetails.add(s);
+		Path dir = s.getDirectory();
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY);
 		if (trace) {
@@ -156,16 +145,14 @@ public class Subscription implements Runnable {
 	 * Register the given directory, and all its sub-directories, with the
 	 * WatchService.
 	 */
-	private void registerAll(final Path start) throws IOException {
-		// register directory and sub-directories
-		Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
-			@Override
-			public FileVisitResult preVisitDirectory(Path dir,
-					BasicFileAttributes attrs) throws IOException {
-				register(dir);
-				return FileVisitResult.CONTINUE;
-			}
-		});
-	}
+	/*
+	 * private void registerAll(final Path start) throws IOException { //
+	 * register directory and sub-directories Files.walkFileTree(start, new
+	 * SimpleFileVisitor<Path>() {
+	 * 
+	 * @Override public FileVisitResult preVisitDirectory(Path dir,
+	 * BasicFileAttributes attrs) throws IOException { register(dir); return
+	 * FileVisitResult.CONTINUE; } }); }
+	 */
 
 }
