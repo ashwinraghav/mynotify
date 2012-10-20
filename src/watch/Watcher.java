@@ -1,6 +1,7 @@
 package watch;
 
 import java.nio.file.*;
+import java.nio.file.WatchEvent.Kind;
 import static java.nio.file.StandardWatchEventKinds.*;
 import static java.nio.file.LinkOption.*;
 import java.nio.file.attribute.*;
@@ -23,8 +24,7 @@ public class Watcher {
 	 * Register the given directory with the WatchService
 	 */
 	private void register(Path dir) throws IOException {
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
+		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY);
 		if (trace) {
 			Path prev = keys.get(key);
 			if (prev == null) {
@@ -45,7 +45,6 @@ public class Watcher {
 	private void registerAll(final Path start) throws IOException {
 		// register directory and sub-directories
 		Files.walkFileTree(start, new SimpleFileVisitor<Path>() {
-			@Override
 			public FileVisitResult preVisitDirectory(Path dir,
 					BasicFileAttributes attrs) throws IOException {
 				register(dir);
@@ -69,7 +68,7 @@ public class Watcher {
 		} else {
 			register(dir);
 		}
-
+		
 		// enable trace after initial registration
 		this.trace = true;
 	}
@@ -95,7 +94,7 @@ public class Watcher {
 			}
 
 			for (WatchEvent<?> event : key.pollEvents()) {
-				WatchEvent.Kind kind = event.kind();
+				Kind<?> kind = event.kind();
 
 				// TBD - provide example of how OVERFLOW event is handled
 				if (kind == OVERFLOW) {
@@ -118,7 +117,7 @@ public class Watcher {
 							registerAll(child);
 						}
 					} catch (IOException x) {
-						// ignore to keep sample readbale
+						// ignore to keep sample readable
 					}
 				}
 			}
@@ -136,26 +135,42 @@ public class Watcher {
 		}
 	}
 
+	/**
+	 * Return the command line usage of the program and exit with error
+	 */
 	static void usage() {
 		System.err.println("usage: java WatchDir [-r] dir");
 		System.exit(-1);
 	}
 
 	public static void main(String[] args) throws IOException {
+		
 		// parse arguments
-		args = new String[2];
-		args[0] = "-r";
-		args[1] = "/if8/am2qa/Desktop";
-		if (args.length == 0 || args.length > 2)
-			usage();
 		boolean recursive = false;
 		int dirArg = 0;
-		if (args[0].equals("-r")) {
-			if (args.length < 2)
+		
+		if(args.length > 2 || args.length < 1){
+			
+			//Remove after testing
+			if(args.length == 0){
+				args = new String[2];
+				args[0] = "-r";
+				args[1] = "/if8/am2qa/Desktop";
+			}
+			else{
+				usage();
+			}
+			//End Remove
+			//usage();
+		}
+		else if(args.length == 2){
+			if((!args[0].equals("-r") && !args[0].equals("-R"))||(args[1].equals("-r") || args[1].equals("-R")))
 				usage();
 			recursive = true;
-			dirArg++;
+			dirArg = 1;
 		}
+		else if(args[0].equals("-r") || args[0].equals("-R"))
+			usage();
 
 		// register directory and process its events
 		Path dir = Paths.get(args[dirArg]);
