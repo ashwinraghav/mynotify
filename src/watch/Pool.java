@@ -20,14 +20,14 @@ public class Pool {
 		initializeThreadPool(poolSize);
 	}
 
-	public void watch(String path, boolean recursive_watch)
-			throws IOException {
+	public void watch(String path, boolean recursive_watch) throws IOException {
 
 		if (other_subscribers_subscribe_to(path)) {
 			// some thread is already writing into an exchange for the file
 			// being subscribed to
 		} else {
 			SubscriberThread thread = pickRandomThread();
+
 			thread.register(new SubscriptionDetails(Paths.get(path),
 					recursive_watch));
 			file_subscriptions.put(path, thread);
@@ -44,16 +44,16 @@ public class Pool {
 
 	private SubscriberThread pickRandomThread() {
 		Random randomGenerator = new Random();
-		int index = randomGenerator.nextInt(subscriberThreads
-				.size());
+		int index = randomGenerator.nextInt(subscriberThreads.size());
 		return subscriberThreads.get(index);
 	}
 
-	public void stopWatching(String path) {
-		// file_subscriptions.get(path).stop();
+	public void stopWatching(String path) throws IOException {
+		file_subscriptions.get(path).unregister(
+				new SubscriptionDetails(Paths.get(path), false));
 	}
 
-	public void close() {
+	public void shutdown() {
 		pool.shutdown();
 	}
 
