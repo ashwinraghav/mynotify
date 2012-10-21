@@ -20,11 +20,12 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class SubscriberThread implements Runnable {
 	private final WatchService watcher;
-	private final Map<WatchKey, Path> keys;
+	private final ConcurrentHashMap<WatchKey, Path> keys;
 	private boolean trace = false;
 	volatile boolean being_watched;
 
@@ -37,14 +38,16 @@ public class SubscriberThread implements Runnable {
 		processEvents();
 	}
 
-	SubscriberThread() throws IOException {
+	SubscriberThread(WatchService watcher, ConcurrentHashMap<WatchKey, Path> keys) throws IOException {
 		this.being_watched = true;
 		// these can be a little dangerous here.
 		// means that there are watchers even for threads that have not
 		// started running. 
-		this.watcher = FileSystems.getDefault().newWatchService();
-		this.keys = new HashMap<WatchKey, Path>();
+		this.watcher = watcher;
+		this.keys = keys;
 	}
+
+	
 
 	public void stop() {
 		being_watched = false;
@@ -69,12 +72,17 @@ public class SubscriberThread implements Runnable {
 
 			if (key == null)
 				continue;
-
+			
+			
+			
+			
 			Path dir = keys.get(key);
 			if (dir == null) {
 				System.err.println("WatchKey not recognized!!");
 				continue;
 			}
+			
+			
 			
 			for (WatchEvent<?> event : key.pollEvents()) {
 
@@ -120,49 +128,6 @@ public class SubscriberThread implements Runnable {
 		}
 	}
 
-	/* regular file registrations */
-
-	public void register(SubscriptionDetails s) throws IOException {
-		Path dir = s.getDirectory();
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
-		
-		if (trace) {
-			Path prev = keys.get(key);
-			if (prev == null) {
-				System.out.format("register: %s\n", dir);
-			} else {
-				if (!dir.equals(prev)) {
-					System.out.format("update: %s -> %s\n", prev, dir);
-				}
-			}
-		}
-		keys.put(key, dir);
-	}
-	
-	public void unregister(SubscriptionDetails s) throws IOException {
-		Path dir = s.getDirectory();
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
-		
-		
-		if (trace) {
-			Path prev = keys.get(key);
-			if (prev == null) {
-				System.out.format("This directory is not under subscription: %s\n", dir);
-			} else {
-				if (!dir.equals(prev)) {
-					keys.remove(key);
-					System.out.format("removed subscription to: %s -> %s\n", prev, dir);
-				}
-			}
-		}
-		
-		key.cancel();
-		//keys.put(dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-			//	ENTRY_MODIFY), dir);
-		
-	}
 
 	/**
 	 * Register the given directory, and all its sub-directories, with the
