@@ -13,7 +13,7 @@ public class SubscriptionReceiver {
 			args[0] = "/localtmp/dump/";
 		}
 
-		Pool pool = new Pool(poolSize);
+		PoolManager pool = new PoolManager(poolSize);
 
 		try {
 			for (int i = 0; i <= 1000; i++) {
