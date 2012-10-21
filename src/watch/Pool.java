@@ -18,6 +18,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Pool {
+	/*****
+	 * pools		-list of pools containing `poolSize` threads each
+	 * watchers		-list of inotify instances. Each pool is given 1 instance
+	 * keys			-each pool (every thread in it) needs a hashmap of keys that represent a file under subscription
+	 * 				and the name of the file itself. A list of these hashmaps is needed. One for
+	 * 				each pool
+	 * file_subscriptions
+	 * 				-map of file_name and the inotify instance that it is mapped
+	 * 				to.
+	 * 
+	 * These data structures are redundant. But they store only references. So
+	 * that is acceptable since it brings in convenience while programming.
+	 */
 	ArrayList<ExecutorService> pools;
 	ArrayList<WatchService> watchers;
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
@@ -25,11 +38,13 @@ public class Pool {
 
 	final int nPools = 20;
 
+	/*bootstraps all the data structures*/
 	Pool(int poolSize) throws IOException {
 		file_subscriptions = new HashMap<String, WatchService>();
 		initializeThreadPools(poolSize);
 	}
 
+	/*watch a file*/
 	public void watch(String path, boolean recursive_watch) throws IOException {
 
 		if (other_subscribers_subscribe_to(path)) {
@@ -41,6 +56,9 @@ public class Pool {
 		}
 	}
 
+	/*pick a random pool to handle the subscription and subscribe to
+	 * the inotify instance that the pool is notified by.
+	 */
 	private WatchService registerFileToRandomPool(String path)
 			throws IOException {
 
@@ -79,6 +97,7 @@ public class Pool {
 		return file_subscriptions.containsKey(path);
 	}
 
+	/*unsubscribe*/
 	public void stopWatching(String path) throws IOException {
 		Path dir = Paths.get(path);
 		WatchService watcher = file_subscriptions.get(path);
@@ -103,13 +122,18 @@ public class Pool {
 		file_subscriptions.remove(path);
 		key.cancel();
 	}
-
+	/*stop all threads in all pools*/
 	public void shutdown() {
 		for (int i = 0; i < nPools; i++) {
 			pools.get(i).shutdown();
 		}
 	}
 
+	/* all threads in all pools are kept alive throughout the lifetime
+	 * of the server. So no thread spawned on the fly. Those threads that
+	 * belong to pools that do not yet handle a subscription are simply alive and
+	 * waiting.
+	 */
 	private void initializeThreadPools(int threadsPerPool) throws IOException {
 		this.watchers = new ArrayList<WatchService>();
 		this.pools = new ArrayList<ExecutorService>();

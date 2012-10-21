@@ -24,6 +24,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class SubscriberThread implements Runnable {
+	/*watcher		-inotify instance
+	 *keys			-a hashmap of keys that represent a file under subscription
+	 * 				and the name of the file itself
+	 */
 	private final WatchService watcher;
 	private final ConcurrentHashMap<WatchKey, Path> keys;
 	private boolean trace = false;
@@ -40,14 +44,9 @@ public class SubscriberThread implements Runnable {
 
 	SubscriberThread(WatchService watcher, ConcurrentHashMap<WatchKey, Path> keys) throws IOException {
 		this.being_watched = true;
-		// these can be a little dangerous here.
-		// means that there are watchers even for threads that have not
-		// started running. 
 		this.watcher = watcher;
 		this.keys = keys;
 	}
-
-	
 
 	public void stop() {
 		being_watched = false;
@@ -59,7 +58,6 @@ public class SubscriberThread implements Runnable {
 		this.trace = true;
 
 		while (being_watched) {
-
 			// wait for key to be signalled
 			WatchKey key;
 			try {
@@ -71,18 +69,13 @@ public class SubscriberThread implements Runnable {
 			}
 
 			if (key == null)
-				continue;
-			
-			
-			
+				continue;			
 			
 			Path dir = keys.get(key);
 			if (dir == null) {
 				System.err.println("WatchKey not recognized!!");
 				continue;
 			}
-			
-			
 			
 			for (WatchEvent<?> event : key.pollEvents()) {
 
@@ -100,19 +93,7 @@ public class SubscriberThread implements Runnable {
 
 				// print out event
 				System.out.format("%s: %s detected by %d\n", event.kind().name(), child, Thread.currentThread().getId());
-
-				// if directory is created, and watching recursively, then
-				// register it and its sub-directories
-				
-				/*if (recursive && (kind == ENTRY_CREATE)) {
-					try {
-						if (Files.isDirectory(child, NOFOLLOW_LINKS)) {
-							registerAll(child);
-						}
-					} catch (IOException x) {
-						// ignore to keep sample readbale
-					}
-				}*/
+				//placeholder 1
 			}
 
 			// reset key and remove from set if directory no longer accessible
@@ -142,5 +123,19 @@ public class SubscriberThread implements Runnable {
 	 * BasicFileAttributes attrs) throws IOException { register(dir); return
 	 * FileVisitResult.CONTINUE; } }); }
 	 */
+	
+	//placeholder 1
+	// if directory is created, and watching recursively, then
+	// register it and its sub-directories
+	
+	/*if (recursive && (kind == ENTRY_CREATE)) {
+		try {
+			if (Files.isDirectory(child, NOFOLLOW_LINKS)) {
+				registerAll(child);
+			}
+		} catch (IOException x) {
+			// ignore to keep sample readbale
+		}
+	}*/
 
 }
