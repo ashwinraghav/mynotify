@@ -1,9 +1,12 @@
 package watch;
 
 import java.io.IOException;
-
+/* To Do
+ * 1. Start receiving subscriptions via some RPC/async mechanism
+ * 
+ */
 public class SubscriptionReceiver {
-	final static int poolSize = 5;
+	final static int poolSize = 10;
 
 	public static void main(String args[]) throws IOException {
 

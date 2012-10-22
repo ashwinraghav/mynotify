@@ -18,11 +18,15 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
-
+/* To Do
+ * 1. Push notifications to exchange instead of printing
+ * 2. Collate notifications in case of redundancy
+ */
 public class SubscriberThread implements Runnable {
 	/*watcher		-inotify instance
 	 *keys			-a hashmap of keys that represent a file under subscription
@@ -60,13 +64,10 @@ public class SubscriberThread implements Runnable {
 		while (being_watched) {
 			// wait for key to be signalled
 			WatchKey key;
-			try {
 				// this needs to be a poll if a client unsubscribes
 				// before the subscription is scheduled itself.
-				key = watcher.poll(5, TimeUnit.SECONDS);
-			} catch (InterruptedException x) {
-				return;
-			}
+				key = watcher.poll();
+			
 
 			if (key == null)
 				continue;			
@@ -92,10 +93,12 @@ public class SubscriberThread implements Runnable {
 				Path child = dir.resolve(name);
 
 				// print out event
-				System.out.format("%s: %s detected by %d\n", event.kind().name(), child, Thread.currentThread().getId());
+				
+				System.out.format("%s: %s detected by %d at", event.kind().name(), child, Thread.currentThread().getId());
+				System.out.println(new Date().getTime());
 				//placeholder 1
 			}
-
+			System.out.println("done");
 			// reset key and remove from set if directory no longer accessible
 			boolean valid = key.reset();
 			if (!valid) {

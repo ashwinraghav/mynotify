@@ -17,16 +17,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/* To Do
+ * 1. Change in mem structures to database storage
+ */
 public class PoolManager {
 	/*****
-	 * pools		-list of pools containing `poolSize` threads each
-	 * watchers		-list of inotify instances. Each pool is given 1 instance
-	 * keys			-each pool (every thread in it) needs a hashmap of keys that represent a file under subscription
-	 * 				and the name of the file itself. A list of these hashmaps is needed. One for
-	 * 				each pool
-	 * file_subscriptions
-	 * 				-map of file_name and the inotify instance that it is mapped
-	 * 				to.
+	 * pools -list of pools containing `poolSize` threads each watchers -list of
+	 * inotify instances. Each pool is given 1 instance keys -each pool (every
+	 * thread in it) needs a hashmap of keys that represent a file under
+	 * subscription and the name of the file itself. A list of these hashmaps is
+	 * needed. One for each pool file_subscriptions -map of file_name and the
+	 * inotify instance that it is mapped to.
 	 * 
 	 * These data structures are redundant. But they store only references. So
 	 * that is acceptable since it brings in convenience while programming.
@@ -36,15 +37,16 @@ public class PoolManager {
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
 	HashMap<String, WatchService> file_subscriptions;
 
-	final int nPools = 20;
-
-	/*bootstraps all the data structures*/
+	final int threadsPerPool = 1;
+	int poolSize;
+	/* bootstraps all the data structures */
 	PoolManager(int poolSize) throws IOException {
+		this.poolSize = poolSize;
 		file_subscriptions = new HashMap<String, WatchService>();
-		initializeThreadPools(poolSize);
+		initializeThreadPools();
 	}
 
-	/*watch a file*/
+	/* watch a file */
 	public void watch(String path, boolean recursive_watch) throws IOException {
 
 		if (other_subscribers_subscribe_to(path)) {
@@ -52,52 +54,57 @@ public class PoolManager {
 			// being subscribed to
 		} else {
 			WatchService ws = registerFileToRandomPool(path);
+
 			file_subscriptions.put(path, ws);
 		}
 	}
 
-	/*pick a random pool to handle the subscription and subscribe to
-	 * the inotify instance that the pool is notified by.
+	/*
+	 * pick a random pool to handle the subscription and subscribe to the
+	 * inotify instance that the pool is notified by.
 	 */
 	private WatchService registerFileToRandomPool(String path)
 			throws IOException {
 
 		Random randomGenerator = new Random();
-		int index = randomGenerator.nextInt(nPools);
+		int i = randomGenerator.nextInt(this.poolSize);
+		int index =0;
+		for (index = 0; index < this.poolSize ; index++) {
 
-		WatchService watcher = watchers.get(index);
-		ConcurrentHashMap<WatchKey, Path> keySet = keys.get(index);
+			WatchService watcher = watchers.get(index);
+			ConcurrentHashMap<WatchKey, Path> keySet = keys.get(index);
 
-		Path dir = Paths.get(path);
+			Path dir = Paths.get(path);
 
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
+			WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
+					ENTRY_MODIFY);
 
-		/**
-		 * Check if the current registration is an update or a new registration.
-		 * This is a reundant path. Will not be reached in the current scheme of
-		 * things
-		 */
-		Path prev = keySet.get(key);
+			/**
+			 * Check if the current registration is an update or a new
+			 * registration. This is a reundant path. Will not be reached in the
+			 * current scheme of things
+			 */
+			Path prev = keySet.get(key);
 
-		if (prev == null) {
-			System.out.format("register: %s\n", dir);
-		} else {
-			if (!dir.equals(prev)) {
-				System.out.format("update: %s -> %s\n", prev, dir);
+			if (prev == null) {
+				System.out.format("register: %s\n", dir);
+			} else {
+				if (!dir.equals(prev)) {
+					System.out.format("update: %s -> %s\n", prev, dir);
+				}
 			}
-		}
-		/************************************/
+			/************************************/
 
-		keySet.put(key, dir);
-		return watcher;
+			keySet.put(key, dir);
+		}
+		return watchers.get(i);
 	}
 
 	private boolean other_subscribers_subscribe_to(String path) {
 		return file_subscriptions.containsKey(path);
 	}
 
-	/*unsubscribe*/
+	/* unsubscribe */
 	public void stopWatching(String path) throws IOException {
 		Path dir = Paths.get(path);
 		WatchService watcher = file_subscriptions.get(path);
@@ -122,24 +129,25 @@ public class PoolManager {
 		file_subscriptions.remove(path);
 		key.cancel();
 	}
-	/*stop all threads in all pools*/
+
+	/* stop all threads in all pools */
 	public void shutdown() {
-		for (int i = 0; i < nPools; i++) {
+		for (int i = 0; i < this.poolSize; i++) {
 			pools.get(i).shutdown();
 		}
 	}
 
-	/* all threads in all pools are kept alive throughout the lifetime
-	 * of the server. So no thread spawned on the fly. Those threads that
-	 * belong to pools that do not yet handle a subscription are simply alive and
-	 * waiting.
+	/*
+	 * all threads in all pools are kept alive throughout the lifetime of the
+	 * server. So no thread spawned on the fly. Those threads that belong to
+	 * pools that do not yet handle a subscription are simply alive and waiting.
 	 */
-	private void initializeThreadPools(int threadsPerPool) throws IOException {
+	private void initializeThreadPools() throws IOException {
 		this.watchers = new ArrayList<WatchService>();
 		this.pools = new ArrayList<ExecutorService>();
-		this.keys = new  ArrayList<ConcurrentHashMap<WatchKey, Path>>();
-		
-		for (int i = 0; i < nPools; i++) {
+		this.keys = new ArrayList<ConcurrentHashMap<WatchKey, Path>>();
+
+		for (int i = 0; i < this.poolSize; i++) {
 			pools.add(Executors.newFixedThreadPool(threadsPerPool));
 			watchers.add(FileSystems.getDefault().newWatchService());
 			keys.add(new ConcurrentHashMap<WatchKey, Path>());
