@@ -8,9 +8,10 @@ import java.io.IOException;
 public class SubscriptionReceiver {
 	final static int poolSize = 10;
 
+	/* the main method is for testing. All subscriptions are sent 
+	 * to the subscribeTo method*/
 	public static void main(String args[]) throws IOException {
 
-		// If no argument is passed; use testing default
 		if (args.length == 0) {
 			args = new String[1];
 			args[0] = "/localtmp/dump/";
@@ -27,5 +28,16 @@ public class SubscriptionReceiver {
 			e1.printStackTrace();
 		}
 		pool.shutdown();
+	}
+	
+	public static void subscribeTo(String args) throws IOException {
+
+		PoolManager pool = new PoolManager(poolSize);
+
+		try {
+			pool.watch(args, false);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 }
