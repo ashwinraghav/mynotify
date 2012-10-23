@@ -36,11 +36,7 @@ public class SubscriberThread implements Runnable {
 	private final ConcurrentHashMap<WatchKey, Path> keys;
 	private boolean trace = false;
 	volatile boolean being_watched;
-
-	@SuppressWarnings("unchecked")
-	static <T> WatchEvent<T> cast(WatchEvent<?> event) {
-		return (WatchEvent<T>) event;
-	}
+	private Publisher publisher;
 
 	public void run() {
 		processEvents();
@@ -50,6 +46,7 @@ public class SubscriberThread implements Runnable {
 		this.being_watched = true;
 		this.watcher = watcher;
 		this.keys = keys;
+		this.publisher = new Publisher();
 	}
 
 	public void stop() {
@@ -64,10 +61,13 @@ public class SubscriberThread implements Runnable {
 		while (being_watched) {
 			// wait for key to be signalled
 			WatchKey key;
+			try {
 				// this needs to be a poll if a client unsubscribes
 				// before the subscription is scheduled itself.
-				key = watcher.poll();
-			
+				key = watcher.poll(5, TimeUnit.SECONDS);
+			} catch (InterruptedException x) {
+				return;
+			}
 
 			if (key == null)
 				continue;			
@@ -88,14 +88,16 @@ public class SubscriberThread implements Runnable {
 				}
 
 				// Context for directory entry event is the file name of entry
-				WatchEvent<Path> ev = cast(event);
-				Path name = ev.context();
-				Path child = dir.resolve(name);
+				
 
 				// print out event
+				try {
+					publisher.publish(dir, event);
+				} catch (IOException e) {
+					System.out.println("unable to publish for some reason");
+					e.printStackTrace();
+				}
 				
-				System.out.format("%s: %s detected by %d at", event.kind().name(), child, Thread.currentThread().getId());
-				System.out.println(new Date().getTime());
 				//placeholder 1
 			}
 			System.out.println("done");

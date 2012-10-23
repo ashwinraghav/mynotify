@@ -37,8 +37,9 @@ public class PoolManager {
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
 	HashMap<String, WatchService> file_subscriptions;
 
-	final int threadsPerPool = 1;
+	final int threadsPerPool = 10;
 	int poolSize;
+
 	/* bootstraps all the data structures */
 	PoolManager(int poolSize) throws IOException {
 		this.poolSize = poolSize;
@@ -67,37 +68,35 @@ public class PoolManager {
 			throws IOException {
 
 		Random randomGenerator = new Random();
-		int i = randomGenerator.nextInt(this.poolSize);
-		int index =0;
-		for (index = 0; index < this.poolSize ; index++) {
+		int index = randomGenerator.nextInt(this.poolSize);
 
-			WatchService watcher = watchers.get(index);
-			ConcurrentHashMap<WatchKey, Path> keySet = keys.get(index);
+		WatchService watcher = watchers.get(index);
+		ConcurrentHashMap<WatchKey, Path> keySet = keys.get(index);
 
-			Path dir = Paths.get(path);
+		Path dir = Paths.get(path);
 
-			WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-					ENTRY_MODIFY);
+		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
+				ENTRY_MODIFY);
 
-			/**
-			 * Check if the current registration is an update or a new
-			 * registration. This is a reundant path. Will not be reached in the
-			 * current scheme of things
-			 */
-			Path prev = keySet.get(key);
+		/**
+		 * Check if the current registration is an update or a new registration.
+		 * This is a reundant path. Will not be reached in the current scheme of
+		 * things
+		 */
+		Path prev = keySet.get(key);
 
-			if (prev == null) {
-				System.out.format("register: %s\n", dir);
-			} else {
-				if (!dir.equals(prev)) {
-					System.out.format("update: %s -> %s\n", prev, dir);
-				}
+		if (prev == null) {
+			System.out.format("register: %s\n", dir);
+		} else {
+			if (!dir.equals(prev)) {
+				System.out.format("update: %s -> %s\n", prev, dir);
 			}
-			/************************************/
-
-			keySet.put(key, dir);
 		}
-		return watchers.get(i);
+		/************************************/
+
+		keySet.put(key, dir);
+
+		return watchers.get(index);
 	}
 
 	private boolean other_subscribers_subscribe_to(String path) {
