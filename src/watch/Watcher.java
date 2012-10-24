@@ -104,9 +104,8 @@ public class Watcher {
 				// Context for directory entry event is the file name of entry
 				WatchEvent<Path> ev = cast(event);
 				Path name = ev.context();
+				
 				Path child = dir.resolve(name);
-
-				// print out event
 				System.out.format("%s: %s\n", event.kind().name(), child);
 
 				// if directory is created, and watching recursively, then

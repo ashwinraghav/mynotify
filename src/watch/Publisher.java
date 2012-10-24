@@ -3,21 +3,18 @@ package watch;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;
-import java.util.Date;
 
+import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-
-import demos.Constants;
 
 public class Publisher {
 	ConnectionFactory factory;
 	Connection connection;
 	Channel channel;
-	boolean inProduction = true;
 	String exchangeType = "fanout";
-	
+
 	static <T> WatchEvent<T> cast(WatchEvent<?> event) {
 		return (WatchEvent<T>) event;
 	}
@@ -26,27 +23,28 @@ public class Publisher {
 		bootstrap();
 	}
 
-	public boolean publish(Path path, WatchEvent event) throws IOException {
+	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
+		// Exchange with the name of the file
+		String exchangeName = path.resolve((Path) cast(event).context())
+				.toString();
+		// Convert the event to a serializable File Event that can be sent over
+		// the network
+		// This is a bit hacky. But works!
+		SerializableFileEvent sfe = new SerializableFileEvent(event);
+		String jsonized = new Gson().toJson(sfe);
+		channel.basicPublish(exchangeName, "", null, jsonized.getBytes());
 
-		WatchEvent<Path> ev = cast(event);
-		Path name = ev.context();
-		Path child = path.resolve(name);
-
-		String exchangeName = child.toString();
-
-		System.out.format("%s: %s detected by %d at", event.kind().name(),
-				child, Thread.currentThread().getId());
-		System.out.println(new Date().getTime());
-
+		System.out.println("Server says: I sent " + jsonized);
+		// On the client, when you dequeue from rabit, simply do the following
+		// Assuming jsonized is the json string that has been dequeued at the client
 		
-		String message = "dummy_message";
-
-		if (inProduction) {
-			channel.exchangeDeclare(exchangeName, exchangeType);
-			channel.basicPublish(exchangeName, "", null, message.getBytes());
-		}
-		
-		System.out.println(" [x] Sent '" + message + "'");
+		/*
+		 * SerializableFileEvent s = new Gson().fromJson(jsonized,
+		 * SerializableFileEvent.class);
+		 * 
+		 * System.out.format("%s: detected on %s\n", s.kind().name(),
+		 * s.context().toString());
+		 */
 		return true;
 	}
 

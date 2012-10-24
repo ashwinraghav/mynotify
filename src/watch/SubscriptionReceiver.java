@@ -20,10 +20,7 @@ public class SubscriptionReceiver {
 		PoolManager pool = new PoolManager(poolSize);
 
 		try {
-			//for (int i = 0; i <= 1000; i++) {
-			//	pool.watch(args[0] + i, false);
-			//}
-			pool.watch("/localtmp", false);
+			pool.watch("/localtmp/dump/1", false);
 			//pool.stopWatching("/localtmp/dump/303");
 		} catch (IOException e1) {
 			e1.printStackTrace();

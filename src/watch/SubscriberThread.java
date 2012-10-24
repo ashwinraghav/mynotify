@@ -1,26 +1,13 @@
 package watch;
 
-import static java.nio.file.LinkOption.NOFOLLOW_LINKS;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.file.WatchEvent.Kind;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 /* To Do
@@ -34,7 +21,6 @@ public class SubscriberThread implements Runnable {
 	 */
 	private final WatchService watcher;
 	private final ConcurrentHashMap<WatchKey, Path> keys;
-	private boolean trace = false;
 	volatile boolean being_watched;
 	private Publisher publisher;
 
@@ -56,10 +42,9 @@ public class SubscriberThread implements Runnable {
 	void processEvents() {
 
 		// enable trace after initial registration
-		this.trace = true;
 
 		while (being_watched) {
-			// wait for key to be signalled
+			// wait for key to be signaled
 			WatchKey key;
 			try {
 				// this needs to be a poll if a client unsubscribes
@@ -80,15 +65,12 @@ public class SubscriberThread implements Runnable {
 			
 			for (WatchEvent<?> event : key.pollEvents()) {
 
-				WatchEvent.Kind kind = event.kind();
+				Kind<?> kind = event.kind();
 
 				// TBD - provide example of how OVERFLOW event is handled
 				if (kind == OVERFLOW) {
 					continue;
 				}
-
-				// Context for directory entry event is the file name of entry
-				
 
 				// print out event
 				try {
@@ -100,7 +82,6 @@ public class SubscriberThread implements Runnable {
 				
 				//placeholder 1
 			}
-			System.out.println("done");
 			// reset key and remove from set if directory no longer accessible
 			boolean valid = key.reset();
 			if (!valid) {
