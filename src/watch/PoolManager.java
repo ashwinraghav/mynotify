@@ -37,7 +37,7 @@ public class PoolManager {
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
 	HashMap<String, WatchService> file_subscriptions;
 
-	final int threadsPerPool = 10;
+	final int threadsPerPool = 20;
 	int poolSize;
 
 	/* bootstraps all the data structures */
@@ -55,7 +55,6 @@ public class PoolManager {
 			// being subscribed to
 		} else {
 			WatchService ws = registerFileToRandomPool(path);
-
 			file_subscriptions.put(path, ws);
 		}
 	}
@@ -151,7 +150,7 @@ public class PoolManager {
 			watchers.add(FileSystems.getDefault().newWatchService());
 			keys.add(new ConcurrentHashMap<WatchKey, Path>());
 
-			for (int j = 0; j < threadsPerPool; j++) {
+			for (int j = 0; j < this.threadsPerPool; j++) {
 				try {
 					SubscriberThread subscriberThread = new SubscriberThread(
 							watchers.get(watchers.size() - 1), keys.get(keys

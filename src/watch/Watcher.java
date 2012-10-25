@@ -13,7 +13,7 @@ public class Watcher {
 	private final WatchService watcher;
 	private final Map<WatchKey, Path> keys;
 	private final boolean recursive;
-	private boolean trace = false;
+	private boolean trace = true;
 
 	@SuppressWarnings("unchecked")
 	static <T> WatchEvent<T> cast(WatchEvent<?> event) {
@@ -60,8 +60,9 @@ public class Watcher {
 		this.watcher = FileSystems.getDefault().newWatchService();
 		this.keys = new HashMap<WatchKey, Path>();
 		this.recursive = recursive;
-
+		System.out.println("fuck yea");
 		if (recursive) {
+			System.out.println("fuck yea");
 			System.out.format("Scanning %s ...\n", dir);
 			registerAll(dir);
 			System.out.println("Done.");
@@ -77,6 +78,7 @@ public class Watcher {
 	 * Process all events for keys queued to the watcher
 	 */
 	void processEvents() {
+		int overflows = 0;
 		for (;;) {
 
 			// wait for key to be signalled
@@ -98,6 +100,8 @@ public class Watcher {
 
 				// TBD - provide example of how OVERFLOW event is handled
 				if (kind == OVERFLOW) {
+					System.out.println("Overflowing!!!!!!!!!!!!!!!!!!!!!");
+					overflows +=1;
 					continue;
 				}
 
@@ -106,7 +110,7 @@ public class Watcher {
 				Path name = ev.context();
 				
 				Path child = dir.resolve(name);
-				System.out.format("%s: %s\n", event.kind().name(), child);
+				//System.out.format("%s: %s\n", event.kind().name(), child);
 
 				// if directory is created, and watching recursively, then
 				// register it and its sub-directories
@@ -154,7 +158,7 @@ public class Watcher {
 			if(args.length == 0){
 				args = new String[2];
 				args[0] = "-r";
-				args[1] = "/if8/am2qa/Desktop";
+				args[1] = "/if8/am2qa/localtmp/dump";
 			}
 			else{
 				usage();
@@ -172,7 +176,8 @@ public class Watcher {
 			usage();
 
 		// register directory and process its events
-		Path dir = Paths.get(args[dirArg]);
-		new Watcher(dir, recursive).processEvents();
+		Path dir = Paths.get("/localtmp/dump/");
+		new Watcher(dir, true).processEvents();
+		System.out.println("here");
 	}
 }

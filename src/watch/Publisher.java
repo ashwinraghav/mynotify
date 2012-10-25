@@ -27,6 +27,8 @@ public class Publisher {
 		// Exchange with the name of the file
 		String exchangeName = path.resolve((Path) cast(event).context())
 				.toString();
+		channel = connection.createChannel();
+		channel.exchangeDeclare(exchangeName, "fanout");
 		// Convert the event to a serializable File Event that can be sent over
 		// the network
 		// This is a bit hacky. But works!
@@ -45,6 +47,7 @@ public class Publisher {
 		 * System.out.format("%s: detected on %s\n", s.kind().name(),
 		 * s.context().toString());
 		 */
+		channel.close();
 		return true;
 	}
 
@@ -52,6 +55,5 @@ public class Publisher {
 		factory = new ConnectionFactory();
 		factory.setHost("elmer.cs.virginia.edu");
 		connection = factory.newConnection();
-		channel = connection.createChannel();
 	}
 }
