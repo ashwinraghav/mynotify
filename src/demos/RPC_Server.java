@@ -19,16 +19,17 @@ public class RPC_Server {
 			PropertyHandlerMapping map = new PropertyHandlerMapping();
 			
 			//Map handler name to handler class
-			map.addHandler("HandlerClass", HandlerClass.class);
+			map.addHandler("HandlerClass", RPC_Server.class);
 			server.setHandlerMapping(map);
-			
-			//XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
-			//Can make changes to server configuration
-			//server.setConfig(config);
 			
 			webserver.start();
 		}catch(Exception e){
 			System.err.println("Server error: "+e);
 		}
+	}
+	
+	public Integer sum(int a, int b, int c){
+		System.out.println("Running Handler!");
+		return new Integer(a+b+c);
 	}
 }
