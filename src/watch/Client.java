@@ -13,7 +13,7 @@ public class Client {
 		String serverUrl = "http://localhost:8080";
 		
 		//Name of the directory to be watched and name of exchange
-		String dirName = "/Users/tjt7a/tmp/";
+		String dirName = "/Users/tjt7a/tmp";
 		
 		XmlRpcClientConfigImpl config;
 		XmlRpcClient client;
@@ -38,19 +38,21 @@ public class Client {
 			Channel channel = connection.createChannel();
 			
 			channel.exchangeDeclare(dirName, "fanout");
+			
+			System.out.println("Client says name of exchange is: "+dirName);
 			String queueName = channel.queueDeclare().getQueue();
 			channel.queueBind(queueName, dirName, "");
 			
 			System.out.println(" [*] Waiting for messages.");
 			
 			QueueingConsumer consumer = new QueueingConsumer(channel);
-			channel.basicConsume(dirName, true, consumer);
+			//channel.basicConsume(dirName, true, consumer);j
 			
 			while(true){
 				QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-				String message = new String(delivery.getBody());
+				String jsonizedMessage = new String(delivery.getBody());
 				
-				System.out.println(" [x] Received: "+message);
+				System.out.println(" [x] Received: "+jsonizedMessage);
 			}
 			
 			

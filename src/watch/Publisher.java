@@ -24,11 +24,16 @@ public class Publisher {
 	}
 
 	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
-		// Exchange with the name of the file
-		String exchangeName = path.resolve((Path) cast(event).context())
-				.toString();
+		
+		// Exchange with the name of the file (but this only works for a file,
+		//in the case of a directory.. this gets hairy)
+		//String exchangeName = path.resolve((Path) cast(event).context())
+		//		.toString();
+		String exchangeName = path.resolve(path).toString();
 		channel = connection.createChannel();
 		channel.exchangeDeclare(exchangeName, "fanout");
+		
+		System.out.println("Server says name of Exchange is: "+exchangeName);
 		// Convert the event to a serializable File Event that can be sent over
 		// the network
 		// This is a bit hacky. But works!
