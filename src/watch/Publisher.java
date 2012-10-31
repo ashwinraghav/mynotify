@@ -24,16 +24,20 @@ public class Publisher {
 	}
 
 	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
-		
+
 		// Exchange with the name of the file (but this only works for a file,
-		//in the case of a directory.. this gets hairy)
-		//String exchangeName = path.resolve((Path) cast(event).context())
-		//		.toString();
+		// in the case of a directory.. this gets hairy)
+		// String exchangeName = path.resolve((Path) cast(event).context())
+		// .toString();
 		String exchangeName = path.resolve(path).toString();
 		channel = connection.createChannel();
-		channel.exchangeDeclare(exchangeName, "fanout");
-		
-		System.out.println("Server says name of Exchange is: "+exchangeName);
+		// channel.exchangeDeclare(exchangeName, "fanout");
+
+		channel.exchangeDeclare(exchangeName, Constants.exchangeType,
+				Constants.exchangeAutoDelete, Constants.exchangeInternal,
+				Constants.exchangeArguments);
+
+		System.out.println("Server says name of Exchange is: " + exchangeName);
 		// Convert the event to a serializable File Event that can be sent over
 		// the network
 		// This is a bit hacky. But works!
@@ -43,8 +47,9 @@ public class Publisher {
 
 		System.out.println("Server says: I sent " + jsonized);
 		// On the client, when you dequeue from rabit, simply do the following
-		// Assuming jsonized is the json string that has been dequeued at the client
-		
+		// Assuming jsonized is the json string that has been dequeued at the
+		// client
+
 		/*
 		 * SerializableFileEvent s = new Gson().fromJson(jsonized,
 		 * SerializableFileEvent.class);

@@ -37,6 +37,7 @@ public class PoolManager {
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
 	HashMap<String, WatchService> file_subscriptions;
 
+	CleanupManager cleanupManager;
 	final int threadsPerPool = 20;
 	int poolSize;
 
@@ -45,6 +46,7 @@ public class PoolManager {
 		this.poolSize = poolSize;
 		file_subscriptions = new HashMap<String, WatchService>();
 		initializeThreadPools();
+		this.cleanupManager = new CleanupManager(watchers, keys, file_subscriptions);
 	}
 
 	/* watch a file */
