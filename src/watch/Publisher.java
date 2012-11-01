@@ -21,12 +21,18 @@ public class Publisher {
 		return (WatchEvent<T>) event;
 	}
 
+	public Publisher() throws IOException {
+		factory = new ConnectionFactory();
+		factory.setHost(Constants.host);
+		connection = factory.newConnection();
+	}
+
 	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
-		bootstrap();
+		channel = connection.createChannel();
 		// String exchangeName = path.resolve((Path) cast(event).context())
 		// .toString();
 		String exchangeName = path.resolve(path).toString();
-		channel = connection.createChannel();
+
 		try {
 			ExchangeManager.declareExchangePassive(channel, exchangeName);
 			String jsonized = (new SerializableFileEvent(event)).toJson();
@@ -34,18 +40,11 @@ public class Publisher {
 			System.out.println("Server says: I sent " + jsonized);
 			channel.close();
 		} catch (IOException e) {
-			System.out.println("Noone is using the exchange");
-		} finally {
-			connection.close();
+			System.out.println(e);
 		}
 		return true;
 	}
 
-	private void bootstrap() throws IOException {
-		factory = new ConnectionFactory();
-		factory.setHost(Constants.host);
-		connection = factory.newConnection();
-	}
 
 	public static class ExchangeManager {
 		@SuppressWarnings("unchecked")

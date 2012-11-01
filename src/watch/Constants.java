@@ -17,6 +17,11 @@ public class Constants {
         
     }
     public static final String host = "elmer.cs.virginia.edu";
-    public static String serverUrl = "http://localhost:8080";
-	
+    public static String serverUrl;
+    
+    public static int serverPort;
+    static{
+    	serverPort= 8080;
+    	serverUrl = "http://localhost:" + serverPort;	
+    }
 }
