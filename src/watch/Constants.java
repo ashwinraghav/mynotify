@@ -1,10 +1,19 @@
 package watch;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Constants {
-	public final static String exchangeType = "fanout";
-	public final static boolean exchangeAutoDelete = true;
-	public final static boolean exchangeInternal = true;
-	public final static Map<String,Object> exchangeArguments = null;
+	public static final Map<String, Object> exchangeMap;
+    static {
+    	Map<String, Object> tempMap = new HashMap<String, Object>();
+    	tempMap.put("type", "fanout");
+    	tempMap.put("autoDelete", true);
+    	tempMap.put("durable", false);
+    	tempMap.put("internal", false);
+    	tempMap.put("arguments", null);
+        exchangeMap = Collections.unmodifiableMap(tempMap);
+    }
+	
 }
