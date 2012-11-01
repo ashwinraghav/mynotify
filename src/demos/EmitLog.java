@@ -1,5 +1,8 @@
 package demos;
 import java.io.IOException;
+
+import watch.Constants;
+
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;

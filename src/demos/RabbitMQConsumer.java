@@ -13,11 +13,12 @@ public class RabbitMQConsumer {
 		factory.setPort(5672);
 		Connection conn = factory.newConnection();
 		Channel channel = conn.createChannel();
-		String exchangeName = "myExchange";
+		String exchangeName = "/localtmp/dump/0/1";
 		String queueName = "myQueue";
 		String routingKey = "testRoute";
 		boolean durable = true;
-		channel.exchangeDeclare(exchangeName, "direct", durable);
+		
+		//channel.exchangeDeclare(exchangeName, "fanout");
 		channel.queueDeclare(queueName, durable, false, false, null);
 		channel.queueBind(queueName, exchangeName, routingKey);
 		boolean noAck = false;

@@ -15,5 +15,6 @@ public class Constants {
     	tempMap.put("arguments", null);
         exchangeMap = Collections.unmodifiableMap(tempMap);
     }
+    public static final String host = "elmer.cs.virginia.edu";
 	
 }
