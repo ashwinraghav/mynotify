@@ -14,7 +14,9 @@ public class Constants {
     	tempMap.put("internal", false);
     	tempMap.put("arguments", null);
         exchangeMap = Collections.unmodifiableMap(tempMap);
+        
     }
     public static final String host = "elmer.cs.virginia.edu";
+    public static String serverUrl = "http://localhost:8080";
 	
 }

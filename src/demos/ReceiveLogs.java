@@ -39,9 +39,7 @@ public class ReceiveLogs {
 			QueueingConsumer.Delivery delivery = consumer.nextDelivery();
 			String message = new String(delivery.getBody());
 
-			System.out.println(" [x] Received '" + message + "'");
-			//channel.queueUnbind(queueName, EXCHANGE_NAME, "*");
-			//break;
+			System.out.println(" [x] Received '" + message + "'");	
 		}
 	}
 }

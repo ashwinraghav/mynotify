@@ -27,9 +27,6 @@ public class Publisher {
 		// .toString();
 		String exchangeName = path.resolve(path).toString();
 		channel = connection.createChannel();
-		// channel.exchangeDeclare(exchangeName, "fanout");
-		// ExchangeManager.declareExchange(channel, exchangeName,
-		// Constants.exchangeMap);
 		try {
 			ExchangeManager.declareExchangePassive(channel, exchangeName);
 			String jsonized = (new SerializableFileEvent(event)).toJson();

@@ -2,6 +2,9 @@ package watch;
 import java.net.URL;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+
+import watch.Publisher.ExchangeManager;
+
 import java.io.IOException;
 import com.rabbitmq.client.*;
 
@@ -10,17 +13,17 @@ public class Client {
 	public static void main(String[] args) {
 		
 		//Server URL and port
-		String serverUrl = "http://localhost:8080";
+		
 		
 		//Name of the directory to be watched and name of exchange
-		String dirName = "/Users/tjt7a/tmp";
+		String dirName = "/localtmp/dump/0/1";
 		
 		XmlRpcClientConfigImpl config;
 		XmlRpcClient client;
 		
 		try{
 			config = new XmlRpcClientConfigImpl();
-			config.setServerURL(new URL(serverUrl));
+			config.setServerURL(new URL(Constants.serverUrl));
 			
 			client = new XmlRpcClient();
 			client.setConfig(config);
@@ -33,20 +36,21 @@ public class Client {
 			System.out.println("Returned: "+i);
 			
 			ConnectionFactory factory = new ConnectionFactory();
-			factory.setHost("elmer.cs.virginia.edu");
+			factory.setHost(Constants.host);
 			Connection connection = factory.newConnection();
 			Channel channel = connection.createChannel();
-			
-			channel.exchangeDeclare(dirName, "fanout");
+			ExchangeManager.declareExchange(channel, dirName, Constants.exchangeMap);
+			//channel.exchangeDeclare(dirName, "fanout");
 			
 			System.out.println("Client says name of exchange is: "+dirName);
 			String queueName = channel.queueDeclare().getQueue();
-			channel.queueBind(queueName, dirName, "");
+			
+			channel.queueBind(queueName, dirName, "*");
 			
 			System.out.println(" [*] Waiting for messages.");
 			
 			QueueingConsumer consumer = new QueueingConsumer(channel);
-			//channel.basicConsume(dirName, true, consumer);j
+			channel.basicConsume(queueName, true, consumer);
 			
 			while(true){
 				QueueingConsumer.Delivery delivery = consumer.nextDelivery();
