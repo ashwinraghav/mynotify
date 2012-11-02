@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -85,23 +85,6 @@ public class PoolManager {
 
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY);
-
-		/**
-		 * Check if the current registration is an update or a new registration.
-		 * This is a reundant path. Will not be reached in the current scheme of
-		 * things
-		 */
-		Path prev = keySet.get(key);
-
-		if (prev == null) {
-			System.out.format("register: %s\n", dir);
-		} else {
-			if (!dir.equals(prev)) {
-				System.out.format("update: %s -> %s\n", prev, dir);
-			}
-		}
-		/************************************/
-
 		keySet.put(key, dir);
 
 		return watchers.get(index);
@@ -110,8 +93,6 @@ public class PoolManager {
 	private boolean other_subscribers_subscribe_to(String path) {
 		return file_subscriptions.containsKey(path);
 	}
-
-	/* unsubscribe */
 
 	/* stop all threads in all pools */
 	public void shutdown() {

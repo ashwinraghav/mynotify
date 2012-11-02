@@ -37,12 +37,13 @@ public class ExchangeManager {
 						.get("Arguments"));
 	}
 
-	public boolean sendPassively(String exchangeName, byte[] body) {
+	public boolean sendPassively(String exchangeName, String routingKey,
+			byte[] body) {
 		Channel channel = createChannel();
 		boolean success = false;
 		try {
 			if (declarePassiveExchange(channel, exchangeName)) {
-				channel.basicPublish(exchangeName, "", null, body);
+				channel.basicPublish(exchangeName, routingKey, null, body);
 				success = true;
 			}
 		} catch (IOException e) {
@@ -88,7 +89,8 @@ public class ExchangeManager {
 		}
 	}
 
-	public String declareQueueAndBindToExchange(Channel channel, String exchangeName, String routingKey) throws IOException {
+	public String declareQueueAndBindToExchange(Channel channel,
+			String exchangeName, String routingKey) throws IOException {
 		String queueName = channel.queueDeclare().getQueue();
 		channel.queueBind(queueName, exchangeName, routingKey);
 		return queueName;

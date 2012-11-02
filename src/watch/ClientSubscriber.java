@@ -1,15 +1,18 @@
 package watch;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import org.apache.xmlrpc.client.XmlRpcClient;
-import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchEvent.Kind;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.QueueingConsumer;
 
 public class ClientSubscriber {
 
-	public static void subscribe(String dirName) {
+	public static void subscribe(String dirName,
+			WatchEvent.Kind<?>... subscriptionTypes) {
 
 		try {
 			RPCManager rpcManager = new RPCManager();
@@ -28,8 +31,13 @@ public class ClientSubscriber {
 					Constants.exchangeMap);
 
 			System.out.println("Client says name of exchange is: " + dirName);
-			String queueName = exchangeManager.declareQueueAndBindToExchange(
-					channel, dirName, "*");
+
+			// bind all subscriptions
+			String queueName = channel.queueDeclare().getQueue();
+			for (Kind<?> w : subscriptionTypes) {
+				channel.queueBind(queueName, dirName, w.name());
+			}
+			// *****
 
 			System.out.println(" [*] Waiting for messages.");
 			QueueingConsumer consumer = new QueueingConsumer(channel);
@@ -46,11 +54,10 @@ public class ClientSubscriber {
 			System.out.println("RPC_Client: " + e);
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] a) {
-		subscribe("/localtmp/dump/0/1");
+		subscribe("/localtmp/dump/0/1", ENTRY_CREATE, ENTRY_DELETE);
 	}
-
+	
 }

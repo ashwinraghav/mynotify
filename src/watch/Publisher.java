@@ -23,12 +23,12 @@ public class Publisher {
 
 	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
 		String jsonized = (new SerializableFileEvent(event)).toJson();
-		exchangeManager.sendPassively(exchangeNameFor(path), jsonized.getBytes());
-		System.out.format("Server says: I sent %s --> %s \n", jsonized, exchangeNameFor(path));
+		exchangeManager.sendPassively(exchangeNameForPath(path), event.kind().name(), jsonized.getBytes());
+		System.out.format("Server says: I sent %s --> %s \n", jsonized, exchangeNameForPath(path));
 		return true;
 	}
 	
-	public String exchangeNameFor(Path path){
+	public String exchangeNameForPath(Path path){
 		return path.resolve(path).toString();
 		// String exchangeName = path.resolve((Path) cast(event).context())
 		// .toString();
