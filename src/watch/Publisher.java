@@ -5,7 +5,6 @@ import java.nio.file.Path;
 import java.nio.file.WatchEvent;
 import java.util.Map;
 
-import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -15,8 +14,7 @@ public class Publisher {
 	ConnectionFactory factory;
 	Connection connection;
 	Channel channel;
-	String exchangeType = "fanout";
-
+	
 	static <T> WatchEvent<T> cast(WatchEvent<?> event) {
 		return (WatchEvent<T>) event;
 	}
@@ -34,6 +32,8 @@ public class Publisher {
 		String exchangeName = path.resolve(path).toString();
 
 		try {
+			System.out.println("Server says name of Exchange is: "
+					+ exchangeName);
 			ExchangeManager.declareExchangePassive(channel, exchangeName);
 			String jsonized = (new SerializableFileEvent(event)).toJson();
 			channel.basicPublish(exchangeName, "", null, jsonized.getBytes());
@@ -50,7 +50,7 @@ public class Publisher {
 		@SuppressWarnings("unchecked")
 		public static DeclareOk declareExchange(Channel channel,
 				String exchangeName, Map<String, Object> m) throws IOException {
-			System.out.println("Server says name of Exchange is: "
+			System.out.println("Name of Exchange is: "
 					+ exchangeName);
 			return channel.exchangeDeclare(exchangeName,
 					(String) m.get("type"), (Boolean) m.get("durable"),
@@ -61,8 +61,6 @@ public class Publisher {
 
 		public static DeclareOk declareExchangePassive(Channel channel,
 				String exchangeName) throws IOException {
-			System.out.println("Server says name of Exchange is: "
-					+ exchangeName);
 			return channel.exchangeDeclarePassive(exchangeName);
 		}
 	}

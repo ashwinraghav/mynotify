@@ -35,7 +35,7 @@ public class PoolManager {
 	ArrayList<ExecutorService> pools;
 	ArrayList<WatchService> watchers;
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
-	HashMap<String, WatchService> file_subscriptions;
+	ConcurrentHashMap<String, WatchService> file_subscriptions;
 
 	CleanupManager cleanupManager;
 	final int threadsPerPool = 20;
@@ -44,14 +44,21 @@ public class PoolManager {
 	/* bootstraps all the data structures */
 	PoolManager(int poolSize) throws IOException {
 		this.poolSize = poolSize;
-		file_subscriptions = new HashMap<String, WatchService>();
+		file_subscriptions = new ConcurrentHashMap<String, WatchService>();
 		initializeThreadPools();
-		this.cleanupManager = new CleanupManager(watchers, keys, file_subscriptions);
+		startCleanupManager();
+		
+	}
+
+	private void startCleanupManager() throws IOException {
+		this.cleanupManager = new CleanupManager(watchers, keys,
+				file_subscriptions);
+		Thread t = new Thread(cleanupManager);
+		t.start();
 	}
 
 	/* watch a file */
 	public void watch(String path, boolean recursive_watch) throws IOException {
-
 		if (other_subscribers_subscribe_to(path)) {
 			// some thread is already writing into an exchange for the file
 			// being subscribed to
@@ -105,30 +112,6 @@ public class PoolManager {
 	}
 
 	/* unsubscribe */
-	public void stopWatching(String path) throws IOException {
-		Path dir = Paths.get(path);
-		WatchService watcher = file_subscriptions.get(path);
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
-		ConcurrentHashMap<WatchKey, Path> keySet = keys.get(watchers
-				.indexOf(watcher));
-
-		if (true) {
-			Path prev = keySet.get(key);
-			if (prev == null) {
-				System.out.format(
-						"This directory is not under subscription: %s\n", dir);
-			} else {
-				if (!dir.equals(prev)) {
-					keySet.remove(key);
-					System.out.format("removed subscription to: %s -> %s\n",
-							prev, dir);
-				}
-			}
-		}
-		file_subscriptions.remove(path);
-		key.cancel();
-	}
 
 	/* stop all threads in all pools */
 	public void shutdown() {
