@@ -21,14 +21,15 @@ public class Server {
 		}
 	}
 
-	private static void bootstrapServer(Class serverClass) throws XmlRpcException, IOException {
+	private static void bootstrapServer(Class serverClass)
+			throws XmlRpcException, IOException {
 		WebServer webserver = new WebServer(Constants.serverPort);
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		PropertyHandlerMapping map = new PropertyHandlerMapping();
 
 		map.addHandler("HandlerClass", serverClass);
 		server.setHandlerMapping(map);
-		
+
 		System.out.println("Server ready to handle requests");
 		webserver.start();
 	}

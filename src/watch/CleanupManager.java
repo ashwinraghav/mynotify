@@ -10,16 +10,10 @@ import java.nio.file.Paths;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-
-import watch.Publisher.ExchangeManager;
 
 public class CleanupManager implements Runnable {
 
@@ -27,9 +21,7 @@ public class CleanupManager implements Runnable {
 	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
 	ConcurrentHashMap<String, WatchService> file_subscriptions;
 
-	ConnectionFactory factory;
-	Connection connection;
-	Channel channel;
+	ExchangeManager exchangeManager;
 
 	CleanupManager(ArrayList<WatchService> watchers,
 			ArrayList<ConcurrentHashMap<WatchKey, Path>> keys,
@@ -39,32 +31,26 @@ public class CleanupManager implements Runnable {
 		this.file_subscriptions = file_subscriptions;
 		this.keys = keys;
 
-		factory = new ConnectionFactory();
-		factory.setHost(Constants.host);
-		connection = factory.newConnection();
-		channel = connection.createChannel();
+		exchangeManager = new ExchangeManager();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void cleanSubscriptions() {
 		Iterator<?> it = file_subscriptions.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry entry = (Map.Entry) it.next();
 			String exchangeName = (String) entry.getKey();
-			try {
-				ExchangeManager.declareExchangePassive(channel, exchangeName);
-			} catch (Exception e) {
+			if (! exchangeManager.isDeclared(exchangeName)) {
 				try {
 					stopWatching(exchangeName);
-					channel = connection.createChannel();
-				} catch (IOException e1) {
-					e1.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
-
 		}
 	}
 
-	public void stopWatching(String path) throws IOException {
+	public void stopWatching(String path) throws IOException{
 		Path dir = Paths.get(path);
 
 		WatchService watcher = file_subscriptions.get(path);
