@@ -6,6 +6,7 @@ import java.util.Map;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 import com.rabbitmq.client.AMQP.Exchange.DeclareOk;
 
 public class ExchangeManager {
@@ -43,7 +44,8 @@ public class ExchangeManager {
 		boolean success = false;
 		try {
 			if (declarePassiveExchange(channel, exchangeName)) {
-				channel.basicPublish(exchangeName, routingKey, null, body);
+				
+				channel.basicPublish(exchangeName, routingKey, MessageProperties.PERSISTENT_BASIC, body);
 				success = true;
 			}
 		} catch (IOException e) {

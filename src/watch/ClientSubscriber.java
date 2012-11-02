@@ -11,15 +11,13 @@ import com.rabbitmq.client.QueueingConsumer;
 
 public class ClientSubscriber {
 
-	public static void subscribe(String dirName,
+	public static void subscribe(String dirName,boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes) {
 
 		try {
 			RPCManager rpcManager = new RPCManager();
 
 			Object[] parameters = new Object[] { new String(dirName) };
-			// Object[] parameters = new Object[]{new Integer(2), new
-			// Integer(4), new Integer(6)};
 			String i = (String) rpcManager.execute("HandlerClass.register",
 					parameters);
 
@@ -33,7 +31,7 @@ public class ClientSubscriber {
 			System.out.println("Client says name of exchange is: " + dirName);
 
 			// bind all subscriptions
-			String queueName = channel.queueDeclare().getQueue();
+			String queueName = channel.queueDeclare("ashwinqueue", durable, false, durable, null).getQueue();
 			for (Kind<?> w : subscriptionTypes) {
 				channel.queueBind(queueName, dirName, w.name());
 			}
@@ -57,7 +55,8 @@ public class ClientSubscriber {
 	}
 
 	public static void main(String[] a) {
-		subscribe("/localtmp/dump/0/1", ENTRY_CREATE, ENTRY_DELETE);
+		boolean durable = false;
+		subscribe("/localtmp/dump/0/1", durable, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
 	}
 	
 }
