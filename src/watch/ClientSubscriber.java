@@ -69,7 +69,7 @@ public class ClientSubscriber {
 	public static void main(String[] a) {
 		boolean durable = false;
 		boolean isNFS = false;
-		String directory = "/localtmp/dump/0/1";
+		String directory = "/if8/am2qa/temp";
 		ArrayList<String> mountedDirectories = new ArrayList<String>();
 		
 		//Allow user to pass name of directory as command line argument
@@ -86,7 +86,7 @@ public class ClientSubscriber {
 			System.out.println("You're running on a mac!");
 			searchString = "(nfs";
 		}
-		else if(os.contains("nix")){
+		else if((os.contains("nix") || (os.contains("linux")))){
 			System.out.println("You're running on Linux/Unix Machine!");
 			searchString = "type nfs";
 		}
