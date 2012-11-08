@@ -34,7 +34,7 @@ public class PoolManager {
 	 */
 	ArrayList<ExecutorService> pools;
 	ArrayList<WatchService> watchers;
-	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
+	ArrayList<ThreadDataStructures> tStructs;
 	ConcurrentHashMap<String, WatchService> file_subscriptions;
 
 	CleanupManager cleanupManager;
@@ -47,11 +47,11 @@ public class PoolManager {
 		file_subscriptions = new ConcurrentHashMap<String, WatchService>();
 		initializeThreadPools();
 		startCleanupManager();
-		
+
 	}
 
 	private void startCleanupManager() throws IOException {
-		this.cleanupManager = new CleanupManager(watchers, keys,
+		this.cleanupManager = new CleanupManager(watchers, tStructs,
 				file_subscriptions);
 		Thread t = new Thread(cleanupManager);
 		t.start();
@@ -79,13 +79,12 @@ public class PoolManager {
 		int index = randomGenerator.nextInt(this.poolSize);
 
 		WatchService watcher = watchers.get(index);
-		ConcurrentHashMap<WatchKey, Path> keySet = keys.get(index);
-
+		ThreadDataStructures td = tStructs.get(index);
 		Path dir = Paths.get(path);
 
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY);
-		keySet.put(key, dir);
+		td.put(key, dir);
 
 		return watchers.get(index);
 	}
@@ -109,17 +108,17 @@ public class PoolManager {
 	private void initializeThreadPools() throws IOException {
 		this.watchers = new ArrayList<WatchService>();
 		this.pools = new ArrayList<ExecutorService>();
-		this.keys = new ArrayList<ConcurrentHashMap<WatchKey, Path>>();
+		this.tStructs = new ArrayList<ThreadDataStructures>();
 
 		for (int i = 0; i < this.poolSize; i++) {
 			pools.add(Executors.newFixedThreadPool(threadsPerPool));
 			watchers.add(FileSystems.getDefault().newWatchService());
-			keys.add(new ConcurrentHashMap<WatchKey, Path>());
+			tStructs.add(new ThreadDataStructures());
 
 			for (int j = 0; j < this.threadsPerPool; j++) {
 				try {
 					SubscriberThread subscriberThread = new SubscriberThread(
-							watchers.get(watchers.size() - 1), keys.get(keys
+							watchers.get(watchers.size() - 1), tStructs.get(tStructs
 									.size() - 1));
 					pools.get(pools.size() - 1).execute(subscriberThread);
 				} catch (IOException e) {

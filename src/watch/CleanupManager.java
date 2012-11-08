@@ -18,18 +18,18 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CleanupManager implements Runnable {
 
 	ArrayList<WatchService> watchers;
-	ArrayList<ConcurrentHashMap<WatchKey, Path>> keys;
+	ArrayList<ThreadDataStructures> keys;
 	ConcurrentHashMap<String, WatchService> file_subscriptions;
 
 	ExchangeManager exchangeManager;
 
 	CleanupManager(ArrayList<WatchService> watchers,
-			ArrayList<ConcurrentHashMap<WatchKey, Path>> keys,
+			ArrayList<ThreadDataStructures> tStructs,
 			ConcurrentHashMap<String, WatchService> file_subscriptions)
 			throws IOException {
 		this.watchers = watchers;
 		this.file_subscriptions = file_subscriptions;
-		this.keys = keys;
+		this.keys = tStructs;
 
 		exchangeManager = new ExchangeManager();
 	}
@@ -58,10 +58,10 @@ public class CleanupManager implements Runnable {
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY);
 
-		ConcurrentHashMap<WatchKey, Path> keySet = keys.get(watchers
+		ThreadDataStructures tds = keys.get(watchers
 				.indexOf(watcher));
 
-		Path prev = keySet.get(key);
+		Path prev = tds.getPathFor(key);
 		if (prev == null) {
 			System.out.format("This directory is not under subscription: %s\n",
 					dir);
@@ -69,7 +69,7 @@ public class CleanupManager implements Runnable {
 			if (dir.equals(prev)) {
 				key.cancel();
 				file_subscriptions.remove(path);
-				keySet.remove(key);
+				tds.removeKey(key);
 				System.out.format("removed subscription to: %s -> %s\n", prev,
 						dir);
 			}
