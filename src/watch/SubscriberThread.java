@@ -20,9 +20,7 @@ public class SubscriberThread implements Runnable {
 	 * watcher -inotify instancekeys -a hashmap of keys that represent a file
 	 * under subscription and the name of the file itself
 	 */
-	private final WatchService watcher;
-	private ThreadDataStructures threadDataStructures;
-	//private final ConcurrentHashMap<WatchKey, Path> keys;
+	private Pool myPool;
 	volatile boolean being_watched;
 	private Publisher publisher;
 	private BurstController burstController;
@@ -31,31 +29,31 @@ public class SubscriberThread implements Runnable {
 		processEvents();
 	}
 
-	SubscriberThread(WatchService watcher,ThreadDataStructures threadDataStructures) throws IOException {
-		this.being_watched = true;
-		this.watcher = watcher;
-		this.threadDataStructures = threadDataStructures;
-		this.publisher = new Publisher();
-		
-		//this.burstController = new BurstController(keys);
+	private WatchService watcher() {
+		return myPool.getWatchService();
 	}
 
+	private ConcurrentHashMap<WatchKey, Path> keys() {
+		return myPool.getWatchKeyToPath();
+	}
+
+	SubscriberThread(Pool myPool) throws IOException {
+		this.being_watched = true;
+		this.myPool = myPool;
+		this.publisher = new Publisher();
+
+		// this.burstController = new BurstController(keys);
+	}
 
 	public void stop() {
 		being_watched = false;
 	}
 
 	void processEvents() {
-
-		// enable trace after initial registration
-
 		while (being_watched) {
-			// wait for key to be signaled
 			WatchKey key;
 			try {
-				// this needs to be a poll if a client unsubscribes
-				// before the subscription is scheduled itself.
-				key = watcher.poll(5, TimeUnit.SECONDS);
+				key = watcher().poll(5, TimeUnit.SECONDS);
 			} catch (InterruptedException x) {
 				return;
 			}
@@ -63,7 +61,7 @@ public class SubscriberThread implements Runnable {
 			if (key == null)
 				continue;
 
-			Path dir = threadDataStructures.getPathFor(key);
+			Path dir = keys().get(key);
 			if (dir == null) {
 				System.err.println("WatchKey not recognized!!");
 				continue;
@@ -77,28 +75,31 @@ public class SubscriberThread implements Runnable {
 				if (kind == OVERFLOW) {
 					continue;
 				}
-				
+
 				try {
-					//asdfasdf
-					//burstController.burst(dir);
+					// burstController.burst(dir);
 					publisher.publish(dir, event);
 				} catch (IOException e) {
 					System.out.println("unable to publish for some reason");
 					e.printStackTrace();
 				}
-
 				// placeholder 1
 			}
-			// reset key and remove from set if directory no longer accessible
-			boolean valid = key.reset();
-			if (!valid) {
-				threadDataStructures.removeKey(key);
-
-				// all directories are inaccessible
-				if (threadDataStructures.areAllDirectoriesInaccessible()) {
-					break;
-				}
+			resetAndRemoveKeyIfInaccessible(key);
+			if (areAllDirectoriesInaccessible()) {
+				break;
 			}
+		}
+	}
+
+	private boolean areAllDirectoriesInaccessible() {
+		return keys().isEmpty();
+	}
+
+	private void resetAndRemoveKeyIfInaccessible(WatchKey key) {
+		boolean valid = key.reset();
+		if (!valid) {
+			keys().remove(key);
 		}
 	}
 

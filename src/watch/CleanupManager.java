@@ -8,26 +8,21 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
 public class CleanupManager implements Runnable {
 
-	ArrayList<WatchService> watchers;
-	ArrayList<ThreadDataStructures> keys;
-	ConcurrentHashMap<String, WatchService> file_subscriptions;
+	ArrayList<Pool> keys;
+	ConcurrentHashMap<String, Pool> file_subscriptions;
 
 	ExchangeManager exchangeManager;
 
-	CleanupManager(ArrayList<WatchService> watchers,
-			ArrayList<ThreadDataStructures> tStructs,
-			ConcurrentHashMap<String, WatchService> file_subscriptions)
+	CleanupManager(ArrayList<Pool> tStructs,
+			ConcurrentHashMap<String, Pool> file_subscriptions)
 			throws IOException {
-		this.watchers = watchers;
 		this.file_subscriptions = file_subscriptions;
 		this.keys = tStructs;
 
@@ -40,7 +35,7 @@ public class CleanupManager implements Runnable {
 		while (it.hasNext()) {
 			Map.Entry entry = (Map.Entry) it.next();
 			String exchangeName = (String) entry.getKey();
-			if (! exchangeManager.isDeclared(exchangeName)) {
+			if (!exchangeManager.isDeclared(exchangeName)) {
 				try {
 					stopWatching(exchangeName);
 				} catch (IOException e) {
@@ -50,18 +45,15 @@ public class CleanupManager implements Runnable {
 		}
 	}
 
-	public void stopWatching(String path) throws IOException{
+	public void stopWatching(String path) throws IOException {
 		Path dir = Paths.get(path);
 
-		WatchService watcher = file_subscriptions.get(path);
+		Pool tds = file_subscriptions.get(path);
 
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
+		WatchKey key = dir.register(tds.getWatchService(), ENTRY_CREATE,
+				ENTRY_DELETE, ENTRY_MODIFY);
 
-		ThreadDataStructures tds = keys.get(watchers
-				.indexOf(watcher));
-
-		Path prev = tds.getPathFor(key);
+		Path prev = tds.getWatchKeyToPath().get(key);
 		if (prev == null) {
 			System.out.format("This directory is not under subscription: %s\n",
 					dir);
@@ -69,7 +61,7 @@ public class CleanupManager implements Runnable {
 			if (dir.equals(prev)) {
 				key.cancel();
 				file_subscriptions.remove(path);
-				tds.removeKey(key);
+				tds.getWatchKeyToPath().remove(key);
 				System.out.format("removed subscription to: %s -> %s\n", prev,
 						dir);
 			}

@@ -32,10 +32,9 @@ public class PoolManager {
 	 * These data structures are redundant. But they store only references. So
 	 * that is acceptable since it brings in convenience while programming.
 	 */
-	ArrayList<ExecutorService> pools;
-	ArrayList<WatchService> watchers;
-	ArrayList<ThreadDataStructures> tStructs;
-	ConcurrentHashMap<String, WatchService> file_subscriptions;
+	// ArrayList<ExecutorService> pools;
+	ArrayList<Pool> pools;
+	ConcurrentHashMap<String, Pool> file_subscriptions;
 
 	CleanupManager cleanupManager;
 	final int threadsPerPool = 20;
@@ -44,15 +43,14 @@ public class PoolManager {
 	/* bootstraps all the data structures */
 	PoolManager(int poolSize) throws IOException {
 		this.poolSize = poolSize;
-		file_subscriptions = new ConcurrentHashMap<String, WatchService>();
+		file_subscriptions = new ConcurrentHashMap<String, Pool>();
 		initializeThreadPools();
 		startCleanupManager();
 
 	}
 
 	private void startCleanupManager() throws IOException {
-		this.cleanupManager = new CleanupManager(watchers, tStructs,
-				file_subscriptions);
+		this.cleanupManager = new CleanupManager(pools, file_subscriptions);
 		Thread t = new Thread(cleanupManager);
 		t.start();
 	}
@@ -63,8 +61,8 @@ public class PoolManager {
 			// some thread is already writing into an exchange for the file
 			// being subscribed to
 		} else {
-			WatchService ws = registerFileToRandomPool(path);
-			file_subscriptions.put(path, ws);
+			Pool tds = registerFileToRandomPool(path);
+			file_subscriptions.put(path, tds);
 		}
 	}
 
@@ -72,21 +70,19 @@ public class PoolManager {
 	 * pick a random pool to handle the subscription and subscribe to the
 	 * inotify instance that the pool is notified by.
 	 */
-	private WatchService registerFileToRandomPool(String path)
-			throws IOException {
+	private Pool registerFileToRandomPool(String path) throws IOException {
 
 		Random randomGenerator = new Random();
 		int index = randomGenerator.nextInt(this.poolSize);
 
-		WatchService watcher = watchers.get(index);
-		ThreadDataStructures td = tStructs.get(index);
+		Pool td = pools.get(index);
 		Path dir = Paths.get(path);
 
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
-		td.put(key, dir);
+		WatchKey key = dir.register(td.getWatchService(), ENTRY_CREATE,
+				ENTRY_DELETE, ENTRY_MODIFY);
+		td.getWatchKeyToPath().put(key, dir);
 
-		return watchers.get(index);
+		return td;
 	}
 
 	private boolean other_subscribers_subscribe_to(String path) {
@@ -96,7 +92,7 @@ public class PoolManager {
 	/* stop all threads in all pools */
 	public void shutdown() {
 		for (int i = 0; i < this.poolSize; i++) {
-			pools.get(i).shutdown();
+			pools.get(i).getThreadPool().shutdown();
 		}
 	}
 
@@ -106,21 +102,17 @@ public class PoolManager {
 	 * pools that do not yet handle a subscription are simply alive and waiting.
 	 */
 	private void initializeThreadPools() throws IOException {
-		this.watchers = new ArrayList<WatchService>();
-		this.pools = new ArrayList<ExecutorService>();
-		this.tStructs = new ArrayList<ThreadDataStructures>();
-
+		this.pools = new ArrayList<Pool>();
 		for (int i = 0; i < this.poolSize; i++) {
-			pools.add(Executors.newFixedThreadPool(threadsPerPool));
-			watchers.add(FileSystems.getDefault().newWatchService());
-			tStructs.add(new ThreadDataStructures());
+
+			pools.add(new Pool(threadsPerPool));
 
 			for (int j = 0; j < this.threadsPerPool; j++) {
 				try {
 					SubscriberThread subscriberThread = new SubscriberThread(
-							watchers.get(watchers.size() - 1), tStructs.get(tStructs
-									.size() - 1));
-					pools.get(pools.size() - 1).execute(subscriberThread);
+							pools.get(pools.size() - 1));
+					pools.get(pools.size() - 1).getThreadPool().execute(
+							subscriberThread);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
