@@ -56,7 +56,7 @@ public class ClientSubscriber {
 			while (true) {
 				QueueingConsumer.Delivery delivery = consumer.nextDelivery();
 				String jsonizedMessage = new String(delivery.getBody());
-
+				
 				System.out.println(" [x] Received: " + jsonizedMessage);
 			}
 			// exchangeManager.closeChannel(channel);
@@ -133,7 +133,7 @@ public class ClientSubscriber {
 			System.out.println("This directory is locally accessible");
 		
 		nfssubscribe(directory, durable, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY);
+				ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
 		
 
 	}

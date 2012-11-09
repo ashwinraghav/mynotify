@@ -7,19 +7,30 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class BurstController {
-	private HashMap<Path, Long> keys;
+	private ConcurrentHashMap<WatchKey, NotificationTimeStamp> notificationTimeStamps;
+	private final static long thresholdCount = 10;
+	private final static long thresholdTime = 5 * 1000; // milliseconds
 
 	public BurstController() {
-		keys = new HashMap<Path, Long>();
+		this.notificationTimeStamps = new ConcurrentHashMap<WatchKey, NotificationTimeStamp>();
 	}
 
-	public boolean isBurst(Path dir) {
-		if (keys.get(dir) == null) {
-			keys.put(dir, new Date().getTime());
-			return true;
+	public String checkBurst(WatchKey key) {
+		long currentTime = new Date().getTime();
+		if (notificationTimeStamps.get(key) == null) {
+			notificationTimeStamps.put(key, new NotificationTimeStamp());
+			return "NO";
 		}
-		
-		return false;
+		if ((currentTime - notificationTimeStamps.get(key).getSentTime() < thresholdTime)) {
+			notificationTimeStamps.get(key).incrementCount();
+			if(notificationTimeStamps.get(key).getNotificationCount() > thresholdCount){
+				return "YES";
+			}else{
+				return "NO";
+			}
+		} else {
+			notificationTimeStamps.put(key, new NotificationTimeStamp());
+			return "NO";
+		}
 	}
-
 }

@@ -13,7 +13,8 @@ public class Pool {
 	private ConcurrentHashMap<WatchKey, Path> watchKeyToPath;
 	private WatchService watchService;
 	ExecutorService threadPool;
-
+	private BurstController burstController;
+	
 	public ExecutorService getThreadPool() {
 		return threadPool;
 	}
@@ -26,6 +27,11 @@ public class Pool {
 		this.watchKeyToPath = new ConcurrentHashMap<WatchKey, Path>();
 		watchService = FileSystems.getDefault().newWatchService();
 		this.threadPool = Executors.newFixedThreadPool(threadsPerPool);
+		this.burstController = new BurstController();
+	}
+
+	public BurstController getBurstController() {
+		return burstController;
 	}
 
 	public ConcurrentHashMap<WatchKey, Path> getWatchKeyToPath() {

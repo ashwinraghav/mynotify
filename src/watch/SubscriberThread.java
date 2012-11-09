@@ -23,7 +23,6 @@ public class SubscriberThread implements Runnable {
 	private Pool myPool;
 	volatile boolean being_watched;
 	private Publisher publisher;
-	private BurstController burstController;
 
 	public void run() {
 		processEvents();
@@ -37,12 +36,14 @@ public class SubscriberThread implements Runnable {
 		return myPool.getWatchKeyToPath();
 	}
 
+	private BurstController burstController() {
+		return myPool.getBurstController();
+	}
+
 	SubscriberThread(Pool myPool) throws IOException {
 		this.being_watched = true;
 		this.myPool = myPool;
 		this.publisher = new Publisher();
-
-		// this.burstController = new BurstController(keys);
 	}
 
 	public void stop() {
@@ -77,8 +78,15 @@ public class SubscriberThread implements Runnable {
 				}
 
 				try {
-					// burstController.burst(dir);
-					publisher.publish(dir, event);
+					String burstResult = burstController().checkBurst(key);
+					if (burstResult == "NO") {
+						publisher.publish(dir, event);
+					} else if (burstResult == "YES") {
+						publisher
+								.publish(dir, new NotificationStopEvent(event));
+					}else if (burstResult == "IGNORE") {
+						continue;
+					}
 				} catch (IOException e) {
 					System.out.println("unable to publish for some reason");
 					e.printStackTrace();
@@ -126,5 +134,4 @@ public class SubscriberThread implements Runnable {
 	 * (Files.isDirectory(child, NOFOLLOW_LINKS)) { registerAll(child); } }
 	 * catch (IOException x) { // ignore to keep sample readbale } }
 	 */
-
 }

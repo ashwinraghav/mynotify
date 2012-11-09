@@ -17,6 +17,12 @@ public class SerializableFileEvent implements WatchEvent {
 		count = event.count();
 	}
 
+	protected SerializableFileEvent(String eventName, String context, int count) {
+		this.eventName = eventName;
+		this.context = context;
+		this.count = count;
+	}
+
 	public static SerializableFileEvent constructFromJson(String jsonized) {
 		return new Gson().fromJson(jsonized, SerializableFileEvent.class);
 	}
@@ -36,14 +42,14 @@ public class SerializableFileEvent implements WatchEvent {
 		if (this.eventName == "OVERFLOW") {
 			return new StdWatchEventKind<Object>("OVERFLOW", Object.class);
 		}
-		return new StdWatchEventKind<Path>("ENTRY_CREATE", Path.class);
+		return new StdWatchEventKind<Path>(this.eventName, Path.class);
 	}
 
 	public String toJson() {
 		return new Gson().toJson(this);
 	}
 
-	private static class StdWatchEventKind<T> implements WatchEvent.Kind<T> {
+	protected static class StdWatchEventKind<T> implements WatchEvent.Kind<T> {
 		private final String name;
 		private final Class<T> type;
 
