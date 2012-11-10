@@ -13,11 +13,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/*
+ * Class used to clean up subscriptions
+ */
 public class CleanupManager implements Runnable {
 
 	ArrayList<Pool> keys;
 	ConcurrentHashMap<String, Pool> file_subscriptions;
-
 	ExchangeManager exchangeManager;
 
 	CleanupManager(ArrayList<Pool> tStructs,
@@ -29,6 +31,10 @@ public class CleanupManager implements Runnable {
 		exchangeManager = new ExchangeManager();
 	}
 
+	/*
+	 * Iterate through all paths and check if all have exchanges. 
+	 * If an exchange is missing, remove entry
+	 */
 	@SuppressWarnings("unchecked")
 	private void cleanSubscriptions() {
 		Iterator<?> it = file_subscriptions.entrySet().iterator();
@@ -39,17 +45,19 @@ public class CleanupManager implements Runnable {
 				try {
 					stopWatching(exchangeName);
 				} catch (IOException e) {
+					NotificationServer.log("CleanupManager IO error: "+e.getMessage());
 					e.printStackTrace();
 				}
 			}
 		}
 	}
 
+	/*
+	 * Stops the watcher for a directory without exchange
+	 */
 	public void stopWatching(String path) throws IOException {
 		Path dir = Paths.get(path);
-
 		Pool tds = file_subscriptions.get(path);
-
 		WatchKey key = dir.register(tds.getWatchService(), ENTRY_CREATE,
 				ENTRY_DELETE, ENTRY_MODIFY);
 
@@ -57,6 +65,8 @@ public class CleanupManager implements Runnable {
 		if (prev == null) {
 			System.out.format("This directory is not under subscription: %s\n",
 					dir);
+			NotificationServer.log(String.format("This directory is not under subscription: %s\n",
+					dir));
 		} else {
 			if (dir.equals(prev)) {
 				key.cancel();
@@ -64,17 +74,23 @@ public class CleanupManager implements Runnable {
 				tds.getWatchKeyToPath().remove(key);
 				System.out.format("removed subscription to: %s -> %s\n", prev,
 						dir);
+				NotificationServer.log(String.format("removed subscription to: %s -> %s\n", prev,
+						dir));
 			}
 		}
 	}
-
-	@Override
+	
+	/*
+	 * Sleep 10 seconds, and check if any directories do not have exchanges anymore
+	 * remove those watchers
+	 */
 	public void run() {
 		while (true) {
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				NotificationServer.log("*CleanupManager Thread Interrupted! "+e.getMessage());
 			}
 			cleanSubscriptions();
 		}
