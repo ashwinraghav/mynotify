@@ -3,12 +3,6 @@ package watch;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;
-import java.util.Map;
-
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.AMQP.Exchange.DeclareOk;
 
 public class Publisher {
 	ExchangeManager exchangeManager;
@@ -21,12 +15,18 @@ public class Publisher {
 		exchangeManager = new ExchangeManager();
 	}
 
+	/*Publish notification to exchange*/
 	public boolean publish(Path path, WatchEvent<?> event) throws IOException {
 		String jsonized = (new SerializableFileEvent(event)).toJson();
 		if (exchangeManager.sendPassively(exchangeNameForPath(path), event
-				.kind().name(), jsonized.getBytes()))
+				.kind().name(), jsonized.getBytes())){
 			System.out.format("Server says: I sent %s --> %s \n", jsonized,
 					exchangeNameForPath(path));
+			NotificationServer.log(String.format("Server says: I sent %s --> %s \n", jsonized,
+					exchangeNameForPath(path)));
+		}else{
+			NotificationServer.log("*Server Publish failed");
+		}
 		return true;
 	}
 
