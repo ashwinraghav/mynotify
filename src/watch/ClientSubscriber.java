@@ -6,8 +6,6 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchEvent.Kind;
 import java.util.ArrayList;
@@ -16,9 +14,89 @@ import java.util.Arrays;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.QueueingConsumer;
 
+/**
+ * Class used for notification services
+ */
 public class ClientSubscriber {
+	
+	//ArrayList of NFS mountpoints
+	private static ArrayList<String> mountedDirectories;
 
-	public static void nfssubscribe(String dirName, boolean durable,
+	/**
+	 * Default Subscriber Constructor
+	 */
+	public ClientSubscriber(){
+		mountedDirectories = new ArrayList<String>();
+		setMountPoints();
+	}
+	
+	/**
+	 * Populates mountedDirectories array with mount point locations
+	 */
+	private void setMountPoints(){
+		
+		String os = System.getProperty("os.name").toLowerCase();
+		String searchString = null;
+		
+		if(os.contains("mac")){
+			searchString = "(nfs";
+		}
+		else if((os.contains("nix") || (os.contains("linux")))){
+			searchString = "type nfs";
+		}
+		else{
+			System.out.println("ERROR: Unknown OS");
+			System.exit(-1);
+		}
+		
+		String line;
+		try{
+			Runtime r = Runtime.getRuntime();
+			Process p = r.exec("mount");
+			p.waitFor();
+			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			ArrayList<String> mount_info = new ArrayList<String>();
+			
+			while((line = b.readLine()) != null){
+				mount_info.add(line);
+			}
+
+			for(int i = 0; i < mount_info.size(); i++){
+				if(mount_info.get(i).contains(searchString)){
+				  ArrayList<String> splitLine = new ArrayList<String>(Arrays.asList(mount_info.get(i).split(" ")));
+				  int indexOfPath = splitLine.indexOf("on");
+				  String mountPoint = splitLine.get(++indexOfPath);
+				  mountedDirectories.add(mountPoint);
+				}
+			}
+
+		}catch(Exception e){
+			System.out.println("Error running `mount` command; Only Linux and OSX are currently supported");
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+	
+	private static void subscribe(String dirName, boolean durable,
+			WatchEvent.Kind<?>... subscriptionTypes){
+
+		for(int i = 0; i < mountedDirectories.size(); i++){
+			if(dirName.startsWith(mountedDirectories.get(i))){
+				System.out.println("Remote Directory");
+				nfssubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
+						ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+			}
+		}
+		System.out.println("Local Directory");
+		nfssubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
+				ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+	}
+	
+
+	/*
+	 * Method for subscribing to a directory that is distributed
+	 */	
+	private static void nfssubscribe(String dirName, boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes) {
 
 		try {
@@ -28,15 +106,20 @@ public class ClientSubscriber {
 			Object[] parameters = new Object[] { new String(dirName) };
 			String i = (String) rpcManager.execute("HandlerClass.register",
 					parameters);
-
-			System.out.println("Returned: " + i);
+			
+			if(i.startsWith("0: ")){
+				System.err.println("Registration Failed");
+				return;
+			}
+			else if(i.startsWith("1: ")){
+				System.out.println("Registration Successful");
+				System.out.println(i);
+			}
 
 			ExchangeManager exchangeManager = new ExchangeManager();
 			Channel channel = exchangeManager.createChannel();
 			exchangeManager.declareExchange(channel, dirName,
 					Constants.exchangeMap);
-
-			System.out.println("Client says name of exchange is: " + dirName);
 
 			// bind all subscriptions
 			if (durable) {
@@ -59,10 +142,18 @@ public class ClientSubscriber {
 				
 				System.out.println(" [x] Received: " + jsonizedMessage);
 			}
-			// exchangeManager.closeChannel(channel);
-		} catch (Exception e) {
-			System.out.println("RPC_Client: " + e);
-			e.printStackTrace();
+		} catch (org.apache.xmlrpc.XmlRpcException e) {
+			System.err.println("XML RPC Exception: "+e.getLocalizedMessage());
+		} catch(java.net.MalformedURLException e){
+			System.err.println("Malformed URL Exception"+e.getLocalizedMessage());
+		} catch(java.io.IOException e){
+			System.err.println("IOException: "+e.getLocalizedMessage());
+		} catch(com.rabbitmq.client.ShutdownSignalException e){
+			System.err.println("Shutdown Signal Sent: "+e.getLocalizedMessage());
+		} catch(com.rabbitmq.client.ConsumerCancelledException e){
+			System.err.println("Consumer has cancelled: "+e.getLocalizedMessage());
+		} catch(Exception e){
+			System.err.println("Exception: "+e.getLocalizedMessage());
 		}
 	}
 
@@ -76,65 +167,9 @@ public class ClientSubscriber {
 		if(a.length == 1)
 			directory = a[0];
 		
-		//Check if directory is local or mounted via NFS
-		//Unfortunately, ever OS is different, so we're going to need to parse `mount`s differently
-		//The main difference between mac and linux is the placement of the mount type
-		String os = System.getProperty("os.name").toLowerCase();
-		String searchString = null;
-		
-		if(os.contains("mac")){
-			System.out.println("You're running on a mac!");
-			searchString = "(nfs";
-		}
-		else if((os.contains("nix") || (os.contains("linux")))){
-			System.out.println("You're running on Linux/Unix Machine!");
-			searchString = "type nfs";
-		}
-			
-		String line = "";
-		
-		try{
-			Runtime r = Runtime.getRuntime();
-			Process p = r.exec("mount");
-			p.waitFor();
-			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			ArrayList<String> mount_info = new ArrayList<String>();
-			
-			while((line = b.readLine()) != null){
-				mount_info.add(line);
-			}
-
-			for(int i = 0; i < mount_info.size(); i++){
-				if(mount_info.get(i).contains(searchString)){
-				  ArrayList<String> splitLine = new ArrayList<String>(Arrays.asList(mount_info.get(i).split(" ")));
-				  int indexOfPath = splitLine.indexOf("on");
-				  String mountPoint = splitLine.get(++indexOfPath);
-				  System.out.println("Found a mounted NFS directory!: "+mountPoint);
-				  mountedDirectories.add(mountPoint);
-				}
-			}
-
-		}catch(Exception e){
-			System.out.println("Error running `mount` command");
-			e.printStackTrace();
-			System.exit(-1);
-		}
-		
-		for(int i = 0; i < mountedDirectories.size(); i++){
-			if(directory.startsWith(mountedDirectories.get(i))){
-				isNFS = true;
-				break;
-			}
-		}
-		
-		if(isNFS)
-			System.out.println("This directory is Remotely Accessed!");
-		else
-			System.out.println("This directory is locally accessible");
-		
-		nfssubscribe(directory, durable, ENTRY_CREATE, ENTRY_DELETE,
+		ClientSubscriber cs = new ClientSubscriber();
+		ClientSubscriber.subscribe(directory, durable, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
-		
 
 	}
 
