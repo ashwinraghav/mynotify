@@ -34,7 +34,7 @@ public class BurstController {
 	/*
 	 * This function returns whether or not a BURST has occurred.
 	 */
-	public String checkBurst(WatchKey key) {
+	public boolean checkBurst(WatchKey key) {
 		
 		long currentTime = new Date().getTime();
 		NotificationTimeStamp timeStamp = notificationTimeStamps.get(key);
@@ -42,24 +42,20 @@ public class BurstController {
 		//There is no timeStamp for the current WatchKey; set to current time
 		if (timeStamp == null) {
 			notificationTimeStamps.put(key, new NotificationTimeStamp());
-			return "NO";
+			return false;
 		}
 		
 		/*If there are more than <thresholdCount> notifications for the same path
-		 * in <thresholdTime> seconds, return "YES"
-		 * else return "NO"
+		 * in <thresholdTime> seconds, return true
+		 * else return false
 		 */
 		if ((currentTime - timeStamp.getSentTime()) < thresholdTime) {
 			timeStamp.incrementCount();
+			return ((notificationTimeStamps.get(key).getNotificationCount()) > thresholdCount);
 			
-			if((notificationTimeStamps.get(key).getNotificationCount()) > thresholdCount){
-				return "YES";
-			}else{
-				return "NO";
-			}
 		} else {
 			timeStamp.update();
-			return "NO";
+			return false;
 		}
 	}
 }
