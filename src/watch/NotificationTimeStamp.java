@@ -58,9 +58,11 @@ public class NotificationTimeStamp {
 	
 	/**
 	 * Update the sentTime to the current time
+	 * Set notificationCount to 0
 	 */
 	public void update(){
 		this.sentTime = new Date().getTime();
+		this.notificationCount = 0;
 	}
 
 }
