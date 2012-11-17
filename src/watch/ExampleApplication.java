@@ -13,17 +13,18 @@ public class ExampleApplication {
 		
 		MyFSWatcher cs = new MyFSWatcher();
 		cs.subscribe(directory);
+		cs.subscribe(directory+"/1");
+		cs.subscribe(directory+"/2");
 		ArrayList<SerializableFileEvent> events;
 		
 		while(true){
-			events = (ArrayList<SerializableFileEvent>) cs.pollEvent();
+			events = cs.pollEvent();
 			for(int i = 0; i < events.size(); i++){
-				System.out.println("i: "+events.get(i).eventName);
+				System.out.println(events.get(i).context+": "+events.get(i).eventName);
 			}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
