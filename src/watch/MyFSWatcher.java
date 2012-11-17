@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
-import java.nio.file.WatchEvent.Kind;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.QueueingConsumer;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Class used for notification services
@@ -23,12 +21,16 @@ public class MyFSWatcher {
 	
 	//ArrayList of NFS mountpoints
 	private static ArrayList<String> mountedDirectories;
+	private LocalWatcher lw;
+	private DistributedWatcher dw;
 
 	/**
 	 * Default Subscriber Constructor
 	 */
 	public MyFSWatcher(){
 		mountedDirectories = new ArrayList<String>();
+		lw = null;
+		dw = null;
 		setMountPoints();
 	}
 	
@@ -71,7 +73,6 @@ public class MyFSWatcher {
 				  mountedDirectories.add(mountPoint);
 				}
 			}
-
 		}catch(Exception e){
 			System.out.println("Error running `mount` command; Only Linux and OSX are currently supported");
 			System.exit(-1);
@@ -107,69 +108,21 @@ public class MyFSWatcher {
 	 */	
 	private int nfssubscribe(String dirName, boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes) {
-
-		try {
-			boolean autoDelete = true;
-			RPCManager rpcManager = new RPCManager();
-
-			Object[] parameters = new Object[] { new String(dirName) };
-			String i = (String) rpcManager.execute("HandlerClass.register",
-					parameters);
-			
-			if(i.startsWith("0: ")){
-				System.err.println("Registration Failed");
+		if(dw == null){
+			try{
+				dw = new DistributedWatcher();
+			}catch(IOException e){
+				e.printStackTrace();
 				return -1;
 			}
-			else if(i.startsWith("1: ")){
-				System.out.println("Registration Successful");
-				System.out.println(i);
-			}
-
-			ExchangeManager exchangeManager = new ExchangeManager();
-			Channel channel = exchangeManager.createChannel();
-			exchangeManager.declareExchange(channel, dirName,
-					Constants.exchangeMap);
-
-			// bind all subscriptions
-			if (durable) {
-				autoDelete = false;
-			}
-			String queueName = channel.queueDeclare("", durable,
-					false, autoDelete, null).getQueue();
-			for (Kind<?> w : subscriptionTypes) {
-				channel.queueBind(queueName, dirName, w.name());
-			}
-			// *****
-
-			System.out.println(" [*] Waiting for messages.");
-			QueueingConsumer consumer = new QueueingConsumer(channel);
-			channel.basicConsume(queueName, true, consumer);
-
-			while (true) {
-				QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-				String jsonizedMessage = new String(delivery.getBody());
-				
-				System.out.println(" [x] Received: " + jsonizedMessage);
-			}
-		} catch (org.apache.xmlrpc.XmlRpcException e) {
-			System.err.println("XML RPC Exception: "+e.getLocalizedMessage());
-			return -1;
-		} catch(java.net.MalformedURLException e){
-			System.err.println("Malformed URL Exception"+e.getLocalizedMessage());
-			return -1;
-		} catch(java.io.IOException e){
-			System.err.println("IOException: "+e.getLocalizedMessage());
-			return -1;
-		} catch(com.rabbitmq.client.ShutdownSignalException e){
-			System.err.println("Shutdown Signal Sent: "+e.getLocalizedMessage());
-			return -1;
-		} catch(com.rabbitmq.client.ConsumerCancelledException e){
-			System.err.println("Consumer has cancelled: "+e.getLocalizedMessage());
-			return -1;
-		} catch(Exception e){
-			System.err.println("Exception: "+e.getLocalizedMessage());
+		}	
+		try {
+			dw.register(dirName);
+		} catch (IOException e) {
+			e.printStackTrace();
 			return -1;
 		}
+		return 0;		
 	}
 	
 	/*
@@ -177,21 +130,42 @@ public class MyFSWatcher {
 	 */	
 	private int localsubscribe(String dirName, boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes){
-		LocalWatcher lw;
-		try {
-			lw = new LocalWatcher();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return -1;
+		if(lw == null){
+			try {
+				lw = new LocalWatcher();
+				System.out.println("Created local watcher");
+			} catch (IOException e) {
+				e.printStackTrace();
+				return -1;
+			}
 		}
 		try {
-			lw.register(Paths.get(dirName));
+			lw.register(dirName);
+			System.out.println("Finished registering: "+dirName);
 		} catch (IOException e) {
 			System.err.println("Could not register; "+dirName);
 			return -1;
 		}
-		
-		lw.processEvents();
 		return 0;
+	}
+	
+	public List<SerializableFileEvent> pollEvent(){
+		List<SerializableFileEvent> temp;
+		ArrayList<SerializableFileEvent> messages = new ArrayList<SerializableFileEvent>();
+		
+		if(dw != null){
+			temp = dw.pollEvents();
+			if(temp != null){
+				messages.addAll(temp);
+			}
+		}
+		if(lw != null){
+			temp = lw.pollEvents();
+			if(temp != null){
+				messages.addAll(temp);
+			}
+		}
+			
+		return messages;
 	}
 }
