@@ -7,12 +7,9 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Class used for notification services
@@ -97,7 +94,9 @@ public class MyFSWatcher {
 			}
 		}
 		System.out.println("Local Directory Subscription for: "+dirName);
-		localsubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
+		//localsubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
+		//		ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		nfssubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
 		return 0;
 	}
@@ -130,9 +129,9 @@ public class MyFSWatcher {
 	 */	
 	private int localsubscribe(String dirName, boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes){
-		if(lw == null){
+		if(this.lw == null){
 			try {
-				lw = new LocalWatcher();
+				this.lw = new LocalWatcher();
 				System.out.println("Created local watcher");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -140,7 +139,7 @@ public class MyFSWatcher {
 			}
 		}
 		try {
-			lw.register(dirName);
+			this.lw.register(dirName);
 			System.out.println("Finished registering: "+dirName);
 		} catch (IOException e) {
 			System.err.println("Could not register; "+dirName);
@@ -149,8 +148,8 @@ public class MyFSWatcher {
 		return 0;
 	}
 	
-	public List<SerializableFileEvent> pollEvent(){
-		List<SerializableFileEvent> temp;
+	public ArrayList<SerializableFileEvent> pollEvent(){
+		ArrayList<SerializableFileEvent> temp;
 		ArrayList<SerializableFileEvent> messages = new ArrayList<SerializableFileEvent>();
 		
 		if(dw != null){
