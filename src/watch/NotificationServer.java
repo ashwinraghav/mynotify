@@ -19,12 +19,17 @@ public class NotificationServer {
 	static PoolManager pool;
 	static Logger log;
 	
+	/**
+	 * Log messages to a log file
+	 * @param msg
+	 */
 	public static void log(String msg){
 		log.info(msg);
 	}
 
-	/*
-	 * Main Class; starts server
+	/**
+	 * Start the main program
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		
