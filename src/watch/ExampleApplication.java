@@ -20,10 +20,10 @@ public class ExampleApplication {
 		while(true){
 			events = cs.pollEvent();
 			for(int i = 0; i < events.size(); i++){
-				System.out.println(events.get(i).context+": "+events.get(i).eventName);
+				System.out.println(events.get(i).toJson());
 			}
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
