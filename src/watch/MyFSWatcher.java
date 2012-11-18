@@ -109,14 +109,14 @@ public class MyFSWatcher {
 			WatchEvent.Kind<?>... subscriptionTypes) {
 		if(dw == null){
 			try{
-				dw = new DistributedWatcher();
+				dw = new DistributedWatcher(durable);
 			}catch(IOException e){
 				e.printStackTrace();
 				return -1;
 			}
 		}	
 		try {
-			dw.register(dirName);
+			dw.register(dirName, subscriptionTypes);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return -1;
@@ -157,7 +157,11 @@ public class MyFSWatcher {
 			if(temp != null){
 				messages.addAll(temp);
 			}
+			else
+				System.out.println("Unfortunately nothing.");
 		}
+		else
+			System.out.println("Distributed Watcher doesnt exist!");
 		if(lw != null){
 			temp = lw.pollEvents();
 			if(temp != null){
