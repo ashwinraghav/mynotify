@@ -84,8 +84,10 @@ public class ExchangeManager {
 
 	public void closeChannel(Channel channel) {
 		try {
-			if (channel.isOpen())
+			if (channel.isOpen()){
 				channel.close();
+				System.out.println("Closing Channel");
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
