@@ -56,6 +56,7 @@ public class SubscriberThread implements Runnable {
 			try {
 				key = watcher().poll(5, TimeUnit.SECONDS);
 			} catch (InterruptedException x) {
+				NotificationServer.log("ERROR: Could not access Watch Service");
 				return;
 			}
 
@@ -78,17 +79,15 @@ public class SubscriberThread implements Runnable {
 				}
 
 				try {
-					String burstResult = burstController().checkBurst(key);
-					if (burstResult == "NO") {
+					boolean burstResult = burstController().checkBurst(key);
+					if (burstResult) {
+						publisher.publish(dir, new NotificationStopEvent(event));
+					} else{
 						publisher.publish(dir, event);
-					} else if (burstResult == "YES") {
-						publisher
-								.publish(dir, new NotificationStopEvent(event));
-					}else if (burstResult == "IGNORE") {
-						continue;
 					}
 				} catch (IOException e) {
 					System.out.println("unable to publish for some reason");
+					NotificationServer.log("Unable to Publish!");
 					e.printStackTrace();
 				}
 				// placeholder 1

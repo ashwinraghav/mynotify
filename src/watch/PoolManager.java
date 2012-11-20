@@ -5,17 +5,12 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /* To Do
  * 1. Change in mem structures to database storage
@@ -32,23 +27,25 @@ public class PoolManager {
 	 * These data structures are redundant. But they store only references. So
 	 * that is acceptable since it brings in convenience while programming.
 	 */
-	// ArrayList<ExecutorService> pools;
+	
 	ArrayList<Pool> pools;
 	ConcurrentHashMap<String, Pool> file_subscriptions;
-
 	CleanupManager cleanupManager;
+	Random randomGenerator;
+
 	final int threadsPerPool = 20;
 	int poolSize;
 
 	/* bootstraps all the data structures */
 	PoolManager(int poolSize) throws IOException {
+		randomGenerator = new Random();
 		this.poolSize = poolSize;
 		file_subscriptions = new ConcurrentHashMap<String, Pool>();
 		initializeThreadPools();
 		startCleanupManager();
-
 	}
 
+	/* Start the cleanup manager that removes stale threads*/
 	private void startCleanupManager() throws IOException {
 		this.cleanupManager = new CleanupManager(pools, file_subscriptions);
 		Thread t = new Thread(cleanupManager);
@@ -57,10 +54,8 @@ public class PoolManager {
 
 	/* watch a file */
 	public void watch(String path, boolean recursive_watch) throws IOException {
-		if (other_subscribers_subscribe_to(path)) {
-			// some thread is already writing into an exchange for the file
-			// being subscribed to
-		} else {
+		//If a subscription doesnt already exist for the path, make one
+		if (uniqueSubscription(path)) {
 			Pool tds = registerFileToRandomPool(path);
 			file_subscriptions.put(path, tds);
 		}
@@ -72,7 +67,6 @@ public class PoolManager {
 	 */
 	private Pool registerFileToRandomPool(String path) throws IOException {
 
-		Random randomGenerator = new Random();
 		int index = randomGenerator.nextInt(this.poolSize);
 
 		Pool td = pools.get(index);
@@ -85,23 +79,28 @@ public class PoolManager {
 		return td;
 	}
 
-	private boolean other_subscribers_subscribe_to(String path) {
-		return file_subscriptions.containsKey(path);
+	/* determine if path is already subscribed to*/
+	private boolean uniqueSubscription(String path) {
+		return (!file_subscriptions.containsKey(path));
 	}
 
 	/* stop all threads in all pools */
 	public void shutdown() {
+		NotificationServer.log("Shutting down all threadpools");
 		for (int i = 0; i < this.poolSize; i++) {
 			pools.get(i).getThreadPool().shutdown();
 		}
 	}
 
 	/*
-	 * all threads in all pools are kept alive throughout the lifetime of the
+	 * All threads in all pools are kept alive throughout the lifetime of the
 	 * server. So no thread spawned on the fly. Those threads that belong to
 	 * pools that do not yet handle a subscription are simply alive and waiting.
 	 */
+
 	private void initializeThreadPools() throws IOException {
+		
+		NotificationServer.log("Initializing "+this.poolSize+" threadpools of "+this.threadsPerPool+" threads.");
 		this.pools = new ArrayList<Pool>();
 		for (int i = 0; i < this.poolSize; i++) {
 
@@ -115,6 +114,7 @@ public class PoolManager {
 							subscriberThread);
 				} catch (IOException e) {
 					e.printStackTrace();
+					NotificationServer.log(e.getMessage());
 				}
 			}
 

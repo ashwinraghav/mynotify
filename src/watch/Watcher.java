@@ -60,9 +60,9 @@ public class Watcher {
 		this.watcher = FileSystems.getDefault().newWatchService();
 		this.keys = new HashMap<WatchKey, Path>();
 		this.recursive = recursive;
-		System.out.println("fuck yea");
+		System.out.println("1");
 		if (recursive) {
-			System.out.println("fuck yea");
+			System.out.println("2");
 			System.out.format("Scanning %s ...\n", dir);
 			registerAll(dir);
 			System.out.println("Done.");
@@ -97,6 +97,8 @@ public class Watcher {
 
 			for (WatchEvent<?> event : key.pollEvents()) {
 				Kind<?> kind = event.kind();
+				
+				System.out.println(kind.toString());
 
 				// TBD - provide example of how OVERFLOW event is handled
 				if (kind == OVERFLOW) {
@@ -148,8 +150,6 @@ public class Watcher {
 
 	public static void main(String[] args) throws IOException {
 		
-		// parse arguments
-		boolean recursive = false;
 		int dirArg = 0;
 		
 		if(args.length > 2 || args.length < 1){
@@ -169,14 +169,13 @@ public class Watcher {
 		else if(args.length == 2){
 			if((!args[0].equals("-r") && !args[0].equals("-R"))||(args[1].equals("-r") || args[1].equals("-R")))
 				usage();
-			recursive = true;
 			dirArg = 1;
 		}
 		else if(args[0].equals("-r") || args[0].equals("-R"))
 			usage();
 
 		// register directory and process its events
-		Path dir = Paths.get("/localtmp/dump/");
+		Path dir = Paths.get(args[dirArg]);
 		new Watcher(dir, true).processEvents();
 		System.out.println("here");
 	}
