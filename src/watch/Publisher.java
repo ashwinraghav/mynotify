@@ -14,18 +14,16 @@ public class Publisher {
 	public Publisher() throws IOException {
 		exchangeManager = new ExchangeManager();
 	}
-	
 
-		/*Publish notification to exchange*/
+	/* Publish notification to exchange */
 	public boolean publish(Path dir, WatchEvent<?> event) throws IOException {
 		String jsonized = (new SerializableFileEvent(event, dir)).toJson();
 		if (exchangeManager.sendPassively(exchangeNameForPath(dir), event
-				.kind().name(), jsonized.getBytes())){
-			System.out.format("Server says: I sent %s --> %s \n", jsonized,
-					exchangeNameForPath(dir));
-			NotificationServer.log(String.format("Server says: I sent %s --> %s \n", jsonized,
-					exchangeNameForPath(dir)));
-		}else{
+				.kind().name(), jsonized.getBytes())) {
+			NotificationServer.log(String.format(
+					"Server says: I sent %s --> %s in thread %d\n", jsonized,
+					exchangeNameForPath(dir), Thread.currentThread().getId()));
+		} else {
 			NotificationServer.log("*Server Publish failed");
 		}
 		return true;

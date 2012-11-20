@@ -80,11 +80,11 @@ public class SubscriberThread implements Runnable {
 
 				try {
 					boolean burstResult = burstController().checkBurst(key);
-					if (burstResult) {
-						publisher.publish(dir, new NotificationStopEvent(event));
-					} else{
+					//if (burstResult) {
+						//publisher.publish(dir, new NotificationStopEvent(event));
+					//} else{
 						publisher.publish(dir, event);
-					}
+					//}
 				} catch (IOException e) {
 					System.out.println("unable to publish for some reason");
 					NotificationServer.log("Unable to Publish!");
@@ -92,6 +92,7 @@ public class SubscriberThread implements Runnable {
 				}
 				// placeholder 1
 			}
+			System.out.println("Exiting that loop");
 			resetAndRemoveKeyIfInaccessible(key);
 			if (areAllDirectoriesInaccessible()) {
 				break;
