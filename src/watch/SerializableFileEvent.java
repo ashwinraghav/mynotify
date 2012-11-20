@@ -9,12 +9,14 @@ import com.google.gson.Gson;
 public class SerializableFileEvent implements WatchEvent {
 	String eventName;
 	String context;
+	String originatingDirectory;
 	int count;
 
-	public SerializableFileEvent(WatchEvent<?> event) {
+	public SerializableFileEvent(WatchEvent<?> event, Path dir) {
 		eventName = event.kind().name();
 		context = event.context().toString();
 		count = event.count();
+		originatingDirectory = dir.toString();
 	}
 
 	protected SerializableFileEvent(String eventName, String context, int count) {
