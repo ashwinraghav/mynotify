@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Class used for notification services
@@ -17,7 +18,7 @@ import java.util.Arrays;
 public class MyFSWatcher {
 
 	// ArrayList of NFS mountpoints
-	private static ArrayList<String> mountedDirectories;
+	private HashMap<String,String> mounted;
 	private LocalWatcher lw;
 	private DistributedWatcher dw;
 
@@ -25,7 +26,7 @@ public class MyFSWatcher {
 	 * Default Subscriber Constructor
 	 */
 	public MyFSWatcher() {
-		mountedDirectories = new ArrayList<String>();
+		mounted = new HashMap<String,String>();
 		lw = null;
 		dw = null;
 		setMountPoints();
@@ -65,9 +66,13 @@ public class MyFSWatcher {
 				if (mount_info.get(i).contains(searchString)) {
 					ArrayList<String> splitLine = new ArrayList<String>(Arrays
 							.asList(mount_info.get(i).split(" ")));
+					
+					String hostName = splitLine.get(0).split(":")[0];
+					System.out.println("Hostname: "+hostName);
+					
 					int indexOfPath = splitLine.indexOf("on");
 					String mountPoint = splitLine.get(++indexOfPath);
-					mountedDirectories.add(mountPoint);
+					mounted.put(mountPoint, hostName);
 				}
 			}
 		} catch (Exception e) {
@@ -76,37 +81,35 @@ public class MyFSWatcher {
 			System.exit(-1);
 		}
 	}
-
+	
 	/**
 	 * 
 	 * @param dirName
 	 * @return 0 if local file is registered; 1 if distributed file is
 	 *         registered Doesn't actually return though
 	 */
-	public int subscribe(String dirName) {
+	public int subscribe(String dirName, WatchEvent.Kind<?>... subscriptionTypes) {
 		boolean durable = false;
-
-		for (int i = 0; i < mountedDirectories.size(); i++) {
-			if (dirName.startsWith(mountedDirectories.get(i))) {
-				System.out.println("Remote Directory Subscription for: "
-						+ dirName);
-				nfssubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
-						ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
-				return 1;
-			}
+		
+		String value = mounted.get(dirName);
+		
+		//This directory is nsf mounted!
+		if(value != null){
+			System.out.println("Remote Directory Subscription for: "
+					+ dirName);
+			nfssubscribe(value, dirName, durable, subscriptionTypes);
+			return 1;
 		}
+
 		System.out.println("Local Directory Subscription for: " + dirName);
-		// localsubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
-		// ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
-		nfssubscribe(dirName, durable, ENTRY_CREATE, ENTRY_DELETE,
-				ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		localsubscribe(dirName, durable, subscriptionTypes);
 		return 0;
 	}
 
 	/*
 	 * Method for subscribing to a directory that is distributed
 	 */
-	private int nfssubscribe(String dirName, boolean durable,
+	private int nfssubscribe(String hostName, String dirName, boolean durable,
 			WatchEvent.Kind<?>... subscriptionTypes) {
 		if (dw == null) {
 			try {
@@ -160,14 +163,13 @@ public class MyFSWatcher {
 				messages.addAll(temp);
 			}
 			
-		} else
-			System.out.println("Distributed Watcher doesnt exist!");
-		/*if (lw != null) {
+		}
+		if (lw != null) {
 			temp = lw.pollEvents();
 			if (temp != null) {
 				messages.addAll(temp);
 			}
-		}*/
+		}
 
 		return messages;
 	}
