@@ -103,7 +103,7 @@ public class MyFSWatcher {
 	        	tempdir = (String)pairs.getKey();
 	        	temphost = (String)pairs.getValue();
 	        	System.out.println("NFS subscription for: "+pairs.getValue());
-	        	nfssubscribe(temphost, tempdir, durable, subscriptionTypes);
+	        	nfssubscribe(temphost, dirName, durable, subscriptionTypes);
 	        	return 1;
 	        }
 	    }
