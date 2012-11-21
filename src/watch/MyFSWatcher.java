@@ -11,6 +11,8 @@ import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Class used for notification services
@@ -91,15 +93,20 @@ public class MyFSWatcher {
 	public int subscribe(String dirName, WatchEvent.Kind<?>... subscriptionTypes) {
 		boolean durable = false;
 		
-		String value = mounted.get(dirName);
+		Iterator<Map.Entry<String, String>> iter = mounted.entrySet().iterator();
+		String tempdir;
+		String temphost;
 		
-		//This directory is nsf mounted!
-		if(value != null){
-			System.out.println("Remote Directory Subscription for: "
-					+ dirName);
-			nfssubscribe(value, dirName, durable, subscriptionTypes);
-			return 1;
-		}
+		while (iter.hasNext()) {
+	        Map.Entry pairs = iter.next();
+	        if(dirName.startsWith((String)pairs.getKey())){
+	        	tempdir = (String)pairs.getKey();
+	        	temphost = (String)pairs.getValue();
+	        	System.out.println("NFS subscription for: "+pairs.getValue());
+	        	nfssubscribe(temphost, tempdir, durable, subscriptionTypes);
+	        	return 1;
+	        }
+	    }
 
 		System.out.println("Local Directory Subscription for: " + dirName);
 		localsubscribe(dirName, durable, subscriptionTypes);
