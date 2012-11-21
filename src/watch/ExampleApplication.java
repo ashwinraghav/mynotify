@@ -16,8 +16,12 @@ public class ExampleApplication {
 			directory = args[0];
 		
 		MyFSWatcher cs = new MyFSWatcher();
-		cs.subscribe(directory, ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
-		cs.subscribe("/Volumes/export", ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		for(int i = 0; i < 1000; i++){
+			cs.subscribe(directory+"/"+i, ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		}
+		for(int i = 0; i < 1000; i++){
+			cs.subscribe("/Volumes/export/users"+"/"+i, ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		}
 		ArrayList<SerializableFileEvent> events;
 		
 		while(true){
