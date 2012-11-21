@@ -3,8 +3,12 @@ package watch;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 public class SerializableFileEvent implements WatchEvent {
 	String eventName;
@@ -27,6 +31,19 @@ public class SerializableFileEvent implements WatchEvent {
 
 	public static SerializableFileEvent constructFromJson(String jsonized) {
 		return new Gson().fromJson(jsonized, SerializableFileEvent.class);
+	}
+
+	public static ArrayList<SerializableFileEvent> constructFromJsonArray(String jsonized) {
+		Gson gson = new Gson();
+		JsonParser parser = new JsonParser();
+		JsonArray array = parser.parse(jsonized).getAsJsonArray();
+		
+		ArrayList<SerializableFileEvent> watchEvents = new ArrayList<SerializableFileEvent>();
+		
+		for(JsonElement s:array){
+			watchEvents.add(gson.fromJson(s, SerializableFileEvent.class));
+		}
+		return watchEvents;
 	}
 
 	@Override

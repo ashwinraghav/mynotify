@@ -1,627 +1,1515 @@
-Nov 20, 2012 1:55:08 AM watch.NotificationServer log
+Nov 20, 2012 6:01:57 PM watch.NotificationServer log
 INFO: Starting XML-RPC Server...
-Nov 20, 2012 1:55:08 AM watch.NotificationServer log
-INFO: Initializing 1 threadpools of 20 threads.
-Nov 20, 2012 1:55:08 AM watch.NotificationServer log
+Nov 20, 2012 6:01:57 PM watch.NotificationServer log
+INFO: Initializing 1 threadpools of 1 threads.
+Nov 20, 2012 6:01:57 PM watch.NotificationServer log
 INFO: Server ready to handle requests
-Nov 20, 2012 1:55:14 AM watch.NotificationServer log
+Nov 20, 2012 6:02:02 PM watch.NotificationServer log
 INFO: Client registered: /if8/am2qa/temp
-Nov 20, 2012 1:55:14 AM watch.NotificationServer log
+Nov 20, 2012 6:02:02 PM watch.NotificationServer log
 INFO: Client registered: /if8/am2qa/temp/1
-Nov 20, 2012 1:55:14 AM watch.NotificationServer log
+Nov 20, 2012 6:02:02 PM watch.NotificationServer log
 INFO: Client registered: /if8/am2qa/temp/2
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:02:09 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:36 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp
+Nov 20, 2012 6:03:36 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:03:36 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/2
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:03:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:05:58 PM watch.NotificationServer log
+INFO: removed subscription to: /if8/am2qa/temp -> /if8/am2qa/temp
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:05:58 PM watch.NotificationServer log
+INFO: removed subscription to: /if8/am2qa/temp/1 -> /if8/am2qa/temp/1
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:05:58 PM watch.NotificationServer log
+INFO: removed subscription to: /if8/am2qa/temp/2 -> /if8/am2qa/temp/2
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:02 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:05 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 11
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:27 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:20 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:06:37 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:34 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1} --> /if8/am2qa/temp/2 in thread 13
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 1:55:21 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 25
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
 
-Nov 20, 2012 2:15:01 AM watch.NotificationServer log
-INFO: Server says: I sent {"eventName":"ENTRY_CREATE","context":"t","originatingDirectory":"/if8/am2qa/temp/1","count":1} --> /if8/am2qa/temp/1 in thread 33
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:36 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:09:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:48 PM watch.NotificationServer log
+INFO: removed subscription to: /if8/am2qa/temp/1 -> /if8/am2qa/temp/1
+
+Nov 20, 2012 6:11:50 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp
+Nov 20, 2012 6:11:50 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:11:50 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/2
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:11:53 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:44 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp
+Nov 20, 2012 6:12:44 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:12:44 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/2
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:52 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:12:59 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:13:06 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:13:57 PM watch.NotificationServer log
+INFO: Client registered: /if8/am2qa/temp/1
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"0","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"1","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"2","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"3","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"4","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"5","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"6","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"7","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"8","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"9","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"10","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"11","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"12","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"13","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"14","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"15","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"16","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"17","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"18","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"19","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"20","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"21","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"22","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"23","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"24","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"25","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"26","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"27","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"28","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"29","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"30","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"31","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"32","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"33","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"34","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"35","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"36","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"37","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"38","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"39","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"40","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"41","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"42","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"43","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"44","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"45","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"46","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"47","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"48","originatingDirectory":"/if8/am2qa/temp/2","count":1},{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"49","originatingDirectory":"/if8/am2qa/temp/1","count":1},{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/1","count":1}] --> /if8/am2qa/temp/1 in thread 11
+
+Nov 20, 2012 6:14:02 PM watch.NotificationServer log
+INFO: Server says: I sent [{"eventName":"ENTRY_MODIFY","context":"50","originatingDirectory":"/if8/am2qa/temp/2","count":1}] --> /if8/am2qa/temp/2 in thread 11
 

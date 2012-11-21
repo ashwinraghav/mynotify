@@ -38,8 +38,9 @@ public class ExchangeManager {
 						.get("Arguments"));
 	}
 
-	public boolean sendPassively(String exchangeName, String routingKey,
+	public boolean sendPassively(String exchangeName,
 			byte[] body) {
+		String routingKey="";
 		Channel channel = createChannel();
 		boolean success = false;
 		try {

@@ -33,7 +33,7 @@ public class PoolManager {
 	CleanupManager cleanupManager;
 	Random randomGenerator;
 
-	final int threadsPerPool = 20;
+	final int threadsPerPool = 1;
 	int poolSize;
 
 	/* bootstraps all the data structures */
@@ -103,9 +103,7 @@ public class PoolManager {
 		NotificationServer.log("Initializing "+this.poolSize+" threadpools of "+this.threadsPerPool+" threads.");
 		this.pools = new ArrayList<Pool>();
 		for (int i = 0; i < this.poolSize; i++) {
-
 			pools.add(new Pool(threadsPerPool));
-
 			for (int j = 0; j < this.threadsPerPool; j++) {
 				try {
 					SubscriberThread subscriberThread = new SubscriberThread(
