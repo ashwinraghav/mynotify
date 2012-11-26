@@ -2,6 +2,8 @@ package watch;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -10,16 +12,6 @@ import com.rabbitmq.client.MessageProperties;
 import com.rabbitmq.client.AMQP.Exchange.DeclareOk;
 
 public class ExchangeManager {
-
-	ConnectionFactory factory;
-	Connection connection;
-	Channel channel;
-
-	public ExchangeManager() throws IOException {
-		factory = new ConnectionFactory();
-		factory.setHost(Constants.host);
-		connection = factory.newConnection();
-	}
 
 	public DeclareOk declareExchange(String exchangeName, Map<String, Object> m)
 			throws IOException {
@@ -38,22 +30,9 @@ public class ExchangeManager {
 						.get("Arguments"));
 	}
 
-	public boolean sendPassively(String exchangeName,
-			byte[] body) {
-		String routingKey="";
-		Channel channel = createChannel();
-		boolean success = false;
-		try {
-			if (declarePassiveExchange(channel, exchangeName)) {
-				
-				channel.basicPublish(exchangeName, routingKey, MessageProperties.PERSISTENT_BASIC, body);
-				success = true;
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		closeChannel(channel);
-		return success;
+	public boolean sendPassively(String exchangeName, byte[] body) {
+		Constants.dispatcher.lazyPublish(exchangeName, body);
+		return true;
 	}
 
 	public static boolean declarePassiveExchange(Channel channel,
@@ -75,22 +54,15 @@ public class ExchangeManager {
 	}
 
 	public Channel createChannel() {
-		try {
-			return connection.createChannel();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return Constants.channel;
 	}
 
 	public void closeChannel(Channel channel) {
-		try {
-			if (channel.isOpen()){
-				channel.close();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { if (channel.isOpen()) { channel.close(); } } catch (IOException
+		 * e) { e.printStackTrace(); }
+		 */
+
 	}
 
 	public String declareQueueAndBindToExchange(Channel channel,

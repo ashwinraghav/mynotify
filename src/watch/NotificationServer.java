@@ -15,7 +15,7 @@ import java.util.logging.SimpleFormatter;
  * Server Class; spawns threadpools and handles notifications
  */
 public class NotificationServer {
-	final static int poolSize = 1;
+	final static int poolSize = 3;
 	static PoolManager pool;
 	static Logger log;
 	

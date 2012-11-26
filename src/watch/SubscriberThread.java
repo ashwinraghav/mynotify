@@ -9,8 +9,13 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.nio.file.WatchEvent.Kind;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 /* To Do
  * 1. Push notifications to exchange instead of printing
@@ -24,6 +29,7 @@ public class SubscriberThread implements Runnable {
 	private Pool myPool;
 	volatile boolean being_watched;
 	private Publisher publisher;
+	Channel channel;
 
 	public void run() {
 		processEvents();
@@ -45,6 +51,19 @@ public class SubscriberThread implements Runnable {
 		this.being_watched = true;
 		this.myPool = myPool;
 		this.publisher = new Publisher();
+
+		ConnectionFactory factory = new ConnectionFactory();
+		Connection connection;
+
+		factory.setHost(Constants.host);
+		try {
+			connection = factory.newConnection();
+			this.channel = connection.createChannel();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public void stop() {
@@ -55,7 +74,7 @@ public class SubscriberThread implements Runnable {
 		while (being_watched) {
 			WatchKey key;
 			try {
-				//key = watcher().poll(5, TimeUnit.SECONDS);
+				// key = watcher().poll(5, TimeUnit.SECONDS);
 				key = watcher().take();
 			} catch (InterruptedException x) {
 				NotificationServer.log("ERROR: Could not access Watch Service");
@@ -70,36 +89,47 @@ public class SubscriberThread implements Runnable {
 				System.err.println("WatchKey not recognized!!");
 				continue;
 			}
-			
-			waitForEventsToAccumulate();
-			ArrayList<SerializableFileEvent> serializableFileEvents = new ArrayList<SerializableFileEvent>();		
+
+			// waitForEventsToAccumulate();
+			// HashMap<WatchKey, ArrayList<SerializableFileEvent>>
+			// serializableFileEvents1 = new HashMap<WatchKey,
+			// ArrayList<SerializableFileEvent>>();
+
+			// String ret = "[";
+			StringBuilder sb = new StringBuilder("[");
+
 			for (WatchEvent<?> event : key.pollEvents()) {
 
 				Kind<?> kind = event.kind();
-				serializableFileEvents.add(new SerializableFileEvent(event, dir));
-				// TBD - provide example of how OVERFLOW event is handled
+
+				if (!sb.toString().equals("[")) {
+					sb.append(",");
+				}
+				sb.append(new SerializableFileEvent(event, dir).toJson());
+
 				if (kind == OVERFLOW) {
+					System.out
+							.println("overflowing**************************** "
+									+ event.count() + "**" + dir.toString());
 					continue;
 				}
-				
-				
-			/*	try {
-					boolean burstResult = burstController().checkBurst(key);
-					//if (burstResult) {
-						//publisher.publish(dir, new NotificationStopEvent(event));
-					//} else{
-						publisher.publish(dir, event);
-					//}
-				} catch (IOException e) {
-					System.out.println("unable to publish for some reason");
-					NotificationServer.log("Unable to Publish!");
-					e.printStackTrace();
-				}*/
+
+				/*
+				 * try { boolean burstResult =
+				 * burstController().checkBurst(key); //if (burstResult) {
+				 * //publisher.publish(dir, new NotificationStopEvent(event));
+				 * //} else{ publisher.publish(dir, event); //} } catch
+				 * (IOException e) {
+				 * System.out.println("unable to publish for some reason");
+				 * NotificationServer.log("Unable to Publish!");
+				 * e.printStackTrace(); }
+				 */
 				// placeholder 1
 			}
-			//System.out.println("Exiting that loop");
+			// System.out.println("Exiting that loop");
 			try {
-				publisher.publish(serializableFileEvents, dir);
+				sb.append("]");
+				publisher.publish(sb.toString(), dir);
 			} catch (IOException e) {
 				NotificationServer.log("Unable to Publish!");
 				e.printStackTrace();

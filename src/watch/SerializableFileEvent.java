@@ -18,7 +18,11 @@ public class SerializableFileEvent implements WatchEvent {
 
 	public SerializableFileEvent(WatchEvent<?> event, Path dir) {
 		eventName = event.kind().name();
-		context = event.context().toString();
+		try {
+			context = event.context().toString();
+		} catch (Exception e) {
+
+		}
 		count = event.count();
 		originatingDirectory = dir.toString();
 	}
@@ -33,14 +37,15 @@ public class SerializableFileEvent implements WatchEvent {
 		return new Gson().fromJson(jsonized, SerializableFileEvent.class);
 	}
 
-	public static ArrayList<SerializableFileEvent> constructFromJsonArray(String jsonized) {
+	public static ArrayList<SerializableFileEvent> constructFromJsonArray(
+			String jsonized) {
 		Gson gson = new Gson();
 		JsonParser parser = new JsonParser();
 		JsonArray array = parser.parse(jsonized).getAsJsonArray();
-		
+
 		ArrayList<SerializableFileEvent> watchEvents = new ArrayList<SerializableFileEvent>();
-		
-		for(JsonElement s:array){
+
+		for (JsonElement s : array) {
 			watchEvents.add(gson.fromJson(s, SerializableFileEvent.class));
 		}
 		return watchEvents;
@@ -65,7 +70,7 @@ public class SerializableFileEvent implements WatchEvent {
 	}
 
 	public String toJson() {
-		return new Gson().toJson(this);
+		return new StringBuilder("{").append("\"eventName\"").append(":").append("\"").append(this.eventName).append("\"").append("," ).append("\"context\"").append(":").append("\"").append(this.context).append("\"").append(",").append( "\"originatingDirectory\"").append(":").append("\"").append(this.originatingDirectory).append("\"").append(",").append("\"count\"").append(":").append("\"").append(this.count).append("\"").append("}").toString();
 	}
 
 	protected static class StdWatchEventKind<T> implements WatchEvent.Kind<T> {
