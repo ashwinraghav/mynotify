@@ -11,6 +11,7 @@ import com.rabbitmq.client.QueueingConsumer;
 import com.rabbitmq.client.ShutdownSignalException;
 
 public class DistributedWatcher {
+	
 	private RPCManager rpcManager;
 	private ExchangeManager exchangeManager;
 	private Channel channel;
@@ -18,30 +19,33 @@ public class DistributedWatcher {
 	private QueueingConsumer consumer;
 
 	/**
-	 * Creates a WatchService
+	 * Creates a watch service
+	 * @param durable
+	 * @throws IOException
 	 */
 	public DistributedWatcher(boolean durable) throws IOException {
 		this.rpcManager = new RPCManager();
 		this.exchangeManager = new ExchangeManager();
 		this.channel = exchangeManager.createChannel();
 		boolean autoDelete = !durable;
-		this.queueName = channel.queueDeclare("", durable, false, autoDelete,
-				null).getQueue();
+		this.queueName = channel.queueDeclare("", durable, false, autoDelete,null).getQueue();
 		this.consumer = new QueueingConsumer(channel);
 		this.channel.basicConsume(queueName, true, consumer);
-		System.out.println("Name of my queue: " + this.queueName);
 	}
 
 	/**
 	 * Register the given directory with the WatchService
+	 * @param dirName
+	 * @param subscriptionTypes
+	 * @return
+	 * @throws IOException
 	 */
 	public int register(String dirName, WatchEvent.Kind<?>... subscriptionTypes)
 			throws IOException {
 		Object[] parameters = new Object[] { new String(dirName) };
 		String i;
 		try {
-			i = (String) rpcManager
-					.execute("HandlerClass.register", parameters);
+			i = (String) rpcManager.execute("HandlerClass.register", parameters);
 		} catch (XmlRpcException e) {
 			System.err.println("Unhandled XML Exception Type");
 			return -1;
@@ -55,8 +59,7 @@ public class DistributedWatcher {
 			System.out.println(i);
 		}
 
-		exchangeManager
-				.declareExchange(channel, dirName, Constants.exchangeMap);
+		exchangeManager.declareExchange(channel, dirName, Constants.exchangeMap);
 
 		for (Kind<?> w : subscriptionTypes) {
 			channel.queueBind(this.queueName, dirName, w.name());
@@ -68,21 +71,17 @@ public class DistributedWatcher {
 
 	/**
 	 * Process all events for keys queued to the watcher
-	 * @throws InterruptedException 
-	 * @throws ConsumerCancelledException 
-	 * @throws ShutdownSignalException 
+	 * @throws InterruptedException
+	 * @throws ConsumerCancelledException
+	 * @throws ShutdownSignalException
 	 */
-
 	public ArrayList<SerializableFileEvent> pollEvents() throws ShutdownSignalException, ConsumerCancelledException, InterruptedException {
 
 		ArrayList<SerializableFileEvent> watchEvents = new ArrayList<SerializableFileEvent>();
-
 		QueueingConsumer.Delivery delivery;
-
 		delivery = consumer.nextDelivery(1);
 		
 		if (delivery != null) {
-
 			watchEvents.addAll(SerializableFileEvent
 					.constructFromJsonArray(new String(delivery.getBody())));
 		}

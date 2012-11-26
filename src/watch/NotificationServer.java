@@ -24,7 +24,7 @@ public class NotificationServer {
 	 * @param msg
 	 */
 	public static void log(String msg){
-		log.info(msg);
+		//log.info(msg);
 	}
 
 	/**
