@@ -91,11 +91,6 @@ public class SubscriberThread implements Runnable {
 			}
 
 			// waitForEventsToAccumulate();
-			// HashMap<WatchKey, ArrayList<SerializableFileEvent>>
-			// serializableFileEvents1 = new HashMap<WatchKey,
-			// ArrayList<SerializableFileEvent>>();
-
-			// String ret = "[";
 			StringBuilder sb = new StringBuilder("[");
 
 			for (WatchEvent<?> event : key.pollEvents()) {

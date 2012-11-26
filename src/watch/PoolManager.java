@@ -34,7 +34,7 @@ public class PoolManager {
 	CleanupManager cleanupManager;
 	Random randomGenerator;
 
-	final int threadsPerPool = 50;
+	final int threadsPerPool = 30;
 	int poolSize;
 
 	/* bootstraps all the data structures */

@@ -2,13 +2,8 @@ package watch;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.MessageProperties;
 import com.rabbitmq.client.AMQP.Exchange.DeclareOk;
 
 public class ExchangeManager {
