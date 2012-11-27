@@ -29,3 +29,6 @@ local.properties
 
 # PDT-specific
 .buildpath
+/NotificationServer.log
+/NotificationServer.log.1
+/NotificationServer.log.lck
