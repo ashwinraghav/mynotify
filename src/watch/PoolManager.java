@@ -5,6 +5,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.WatchKey;
@@ -33,17 +34,19 @@ public class PoolManager {
 	CleanupManager cleanupManager;
 	Random randomGenerator;
 
-	final int threadsPerPool = 1;
+	final int threadsPerPool = 30;
 	int poolSize;
 
 	/* bootstraps all the data structures */
-	PoolManager(int poolSize) throws IOException {
+	PoolManager(int poolSize) throws IOException{
 		randomGenerator = new Random();
 		this.poolSize = poolSize;
 		file_subscriptions = new ConcurrentHashMap<String, Pool>();
 		initializeThreadPools();
 		startCleanupManager();
 	}
+
+	
 
 	/* Start the cleanup manager that removes stale threads*/
 	private void startCleanupManager() throws IOException {
@@ -98,7 +101,7 @@ public class PoolManager {
 	 * pools that do not yet handle a subscription are simply alive and waiting.
 	 */
 
-	private void initializeThreadPools() throws IOException {
+	private void initializeThreadPools() throws IOException{
 		
 		NotificationServer.log("Initializing "+this.poolSize+" threadpools of "+this.threadsPerPool+" threads.");
 		this.pools = new ArrayList<Pool>();

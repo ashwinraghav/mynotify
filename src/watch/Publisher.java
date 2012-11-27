@@ -19,11 +19,7 @@ public class Publisher {
 	}
 
 	/* Publish notification to exchange */
-	public boolean publish(
-			ArrayList<SerializableFileEvent> serializableFileEvents, Path dir)
-			throws IOException {
-		Gson gson = new Gson();
-		String jsonized = gson.toJson(serializableFileEvents);
+	public boolean publish(String jsonized, Path dir) throws IOException {
 		if (exchangeManager.sendPassively(exchangeNameForPath(dir), jsonized
 				.getBytes())) {
 

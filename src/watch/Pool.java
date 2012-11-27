@@ -14,7 +14,7 @@ public class Pool {
 	private WatchService watchService;
 	ExecutorService threadPool;
 	private BurstController burstController;
-	
+
 	public ExecutorService getThreadPool() {
 		return threadPool;
 	}
