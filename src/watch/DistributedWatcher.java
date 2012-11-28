@@ -17,6 +17,7 @@ public class DistributedWatcher {
 	private Channel channel;
 	private String queueName;
 	private QueueingConsumer consumer;
+	private final boolean debug = true;
 
 	/**
 	 * Creates a watch service
@@ -33,7 +34,8 @@ public class DistributedWatcher {
 		boolean autoDelete = !durable;
 		this.queueName = channel.queueDeclare("", durable, false, autoDelete,
 				null).getQueue();
-		System.out.println(this.queueName);
+		if(debug)
+			System.out.println("QueueName: "+this.queueName);
 		this.consumer = new QueueingConsumer(channel);
 		this.channel.basicConsume(queueName, true, consumer);
 	}
@@ -62,21 +64,20 @@ public class DistributedWatcher {
 			System.err.println("Registration Failed");
 			return -1;
 		} else if (i.startsWith("1: ")) {
-			System.out.println("Registration Successful");
-			System.out.println(i);
+			if(debug){
+				System.out.println("Registration Successful");
+				System.out.println(i);
+			}
 		}
 
 		exchangeManager
 				.declareExchange(channel, dirName, Constants.exchangeMap);
-
-		
 		
 		for (Kind<?> w : subscriptionTypes) {
-			System.out.println("**********************" + dirName);
+			if(debug)
+				System.out.println("Binding DirName: " + dirName+" to QueueName: "+this.queueName+" for type: "+w.name());
 			channel.queueBind(this.queueName, dirName, w.name());
 		}
-
-		System.out.println("Bound exchange: " + dirName);
 		return 0;
 	}
 
@@ -93,8 +94,11 @@ public class DistributedWatcher {
 
 		ArrayList<SerializableFileEvent> watchEvents = new ArrayList<SerializableFileEvent>();
 		QueueingConsumer.Delivery delivery;
+		
+		//Wait for a maximum of 1ms and get next chunk of notifications
 		delivery = consumer.nextDelivery(1);
 
+		//If we have notifications, add them to watchEvents and return to callee
 		if (delivery != null) {
 			watchEvents.addAll(SerializableFileEvent
 					.constructFromJsonArray(new String(delivery.getBody())));
