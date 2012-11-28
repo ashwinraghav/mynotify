@@ -23,7 +23,7 @@ public class ClientSubscriber {
 
 		try {
 			boolean autoDelete = true;
-			RPCManager rpcManager = new RPCManager();
+			RPCManager rpcManager = new RPCManager(Constants.host);
 
 			Object[] parameters = new Object[] { new String(dirName) };
 			String i = (String) rpcManager.execute("HandlerClass.register",

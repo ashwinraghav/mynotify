@@ -20,7 +20,7 @@ import java.util.Map;
 public class MyFSWatcher {
 
 	// ArrayList of NFS mountpoints
-	private HashMap<String,String> mounted;
+	private HashMap<String, String> mounted;
 	private LocalWatcher lw;
 	private DistributedWatcher dw;
 
@@ -28,7 +28,7 @@ public class MyFSWatcher {
 	 * Default Subscriber Constructor
 	 */
 	public MyFSWatcher() {
-		mounted = new HashMap<String,String>();
+		mounted = new HashMap<String, String>();
 		lw = null;
 		dw = null;
 		setMountPoints();
@@ -68,10 +68,10 @@ public class MyFSWatcher {
 				if (mount_info.get(i).contains(searchString)) {
 					ArrayList<String> splitLine = new ArrayList<String>(Arrays
 							.asList(mount_info.get(i).split(" ")));
-					
+
 					String hostName = splitLine.get(0).split(":")[0];
-					System.out.println("Hostname: "+hostName);
-					
+					System.out.println("Hostname: " + hostName);
+
 					int indexOfPath = splitLine.indexOf("on");
 					String mountPoint = splitLine.get(++indexOfPath);
 					mounted.put(mountPoint, hostName);
@@ -83,33 +83,40 @@ public class MyFSWatcher {
 			System.exit(-1);
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param dirName
 	 * @return 0 if local file is registered; 1 if distributed file is
 	 *         registered Doesn't actually return though
 	 */
-	public int subscribe(String dirName, WatchEvent.Kind<?>... subscriptionTypes) {
+	public int subscribe(String dirName) {
 		boolean durable = false;
-		
-		Iterator<Map.Entry<String, String>> iter = mounted.entrySet().iterator();
+
+		Iterator<Map.Entry<String, String>> iter = mounted.entrySet()
+				.iterator();
 		String tempdir;
 		String temphost;
-		
-		while (iter.hasNext()) {
-	        Map.Entry pairs = iter.next();
-	        if(dirName.startsWith((String)pairs.getKey())){
-	        	tempdir = (String)pairs.getKey();
-	        	temphost = (String)pairs.getValue();
-	        	System.out.println("NFS subscription for: "+pairs.getValue());
-	        	nfssubscribe(temphost, dirName, durable, subscriptionTypes);
-	        	return 1;
-	        }
-	    }
 
-		System.out.println("Local Directory Subscription for: " + dirName);
-		localsubscribe(dirName, durable, subscriptionTypes);
+		while (iter.hasNext()) {
+			Map.Entry pairs = iter.next();
+			if (dirName.startsWith((String) pairs.getKey())) {
+				tempdir = (String) pairs.getKey();
+				temphost = (String) pairs.getValue();
+				System.out.println("NFS subscription for: " + pairs.getValue());
+				nfssubscribe(temphost, dirName, durable, ENTRY_CREATE,
+						ENTRY_DELETE, ENTRY_MODIFY,
+						NotificationStopEvent.NOTIFICATION_STOP);
+				return 1;
+			}
+		}
+
+		// System.out.println("Local Directory Subscription for: " + dirName);
+		// localsubscribe(dirName, durable, ENTRY_CREATE,
+		// ENTRY_DELETE,ENTRY_MODIFY, NotificationStopEvent.NOTIFICATION_STOP);
+		nfssubscribe(Constants.serverUrl, dirName, durable, ENTRY_CREATE,
+				ENTRY_DELETE, ENTRY_MODIFY,
+				NotificationStopEvent.NOTIFICATION_STOP);
 		return 0;
 	}
 
@@ -120,7 +127,7 @@ public class MyFSWatcher {
 			WatchEvent.Kind<?>... subscriptionTypes) {
 		if (dw == null) {
 			try {
-				dw = new DistributedWatcher(durable);
+				dw = new DistributedWatcher(hostName, durable);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return -1;
@@ -169,7 +176,7 @@ public class MyFSWatcher {
 			if (temp != null) {
 				messages.addAll(temp);
 			}
-			
+
 		}
 		if (lw != null) {
 			temp = lw.pollEvents();

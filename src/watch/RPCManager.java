@@ -9,15 +9,16 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 
 public class RPCManager {
 	XmlRpcClient client;
-	public RPCManager() throws MalformedURLException {
-		client = getRPCClient();
+	public RPCManager(String serverHostName) throws MalformedURLException {
+		client = getRPCClient(serverHostName);
 	}
 	
-	public static XmlRpcClient getRPCClient() throws MalformedURLException {
+	public static XmlRpcClient getRPCClient(String serverHostName) throws MalformedURLException {
 		XmlRpcClientConfigImpl config;
 		XmlRpcClient client;
 		config = new XmlRpcClientConfigImpl();
-		config.setServerURL(new URL(Constants.serverUrl));
+		System.out.println(serverHostName);
+		config.setServerURL(new URL(serverHostName));
 
 		client = new XmlRpcClient();
 		client.setConfig(config);

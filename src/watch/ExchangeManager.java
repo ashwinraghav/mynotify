@@ -49,7 +49,12 @@ public class ExchangeManager {
 	}
 
 	public Channel createChannel() {
-		return Constants.channel;
+		try {
+			return Constants.connection.createChannel();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void closeChannel(Channel channel) {

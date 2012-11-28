@@ -34,7 +34,7 @@ public class Dispatcher {
 	public Dispatcher() throws IOException {
 		this.messageQueue = new ConcurrentLinkedQueue<Dispatchable>();
 
-		for (int i = 0; i < this.dispatcherPoolSize; i++) {
+		for (int i = 0; i < dispatcherPoolSize; i++) {
 			Thread t = new Thread(new Consumer(messageQueue));
 			threadPool.execute(t);
 		}
