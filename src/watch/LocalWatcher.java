@@ -1,7 +1,7 @@
 package watch;
 
 import java.nio.file.*;
-import static java.nio.file.StandardWatchEventKinds.*;
+
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -25,9 +25,9 @@ public class LocalWatcher {
 	 * @param dirName
 	 * @throws IOException
 	 */
-	public void register(String dirName) throws IOException {
+	public void register(String dirName, WatchEvent.Kind<?>... subscriptionTypes) throws IOException {
 		Path dir = Paths.get(dirName);
-		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,ENTRY_MODIFY);
+		WatchKey key = dir.register(watcher, subscriptionTypes);
 		keys.put(key, dir);
 	}
 
